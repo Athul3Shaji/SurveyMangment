@@ -1,0 +1,86 @@
+
+
+<div class="card my-2">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <button type="submit" [disabled]="!userForm.form.valid" 
+          class="btn btn-info">Submit</button><br><br><br>
+        <div class="form-group">
+          <label for="name">Survey Name</label>
+          <input type="text" [(ngModel)]="survey.survey_name" 
+            class="form-control" 
+            id="name" 
+            name="name" 
+            placeholder=" Survey name"
+            required #name="ngModel">
+        </div>
+        <div [hidden]="!name.pristine" class="alert alert-danger">Survey Name  required</div>
+        <div class="form-group">
+          <label for="email">Survey Description</label>
+          <textarea [(ngModel)]="survey.survey_description" 
+            class="form-control" 
+            id="desc" 
+            name="desc" 
+            placeholder="survey description"
+            required #email="ngModel" rows="4" cols="50"></textarea>
+          <div [hidden]="!email.pristine" class="alert alert-danger">Description Required</div>
+        </div>
+        Question Type
+        <div ng-app="myApp" ng-controller="myCtrl">
+
+          <select ng-model="selectedName" ng-options="x for x in names">
+          </select>
+          
+          </div>
+          
+       
+      </form>
+   
+      
+    </div>
+
+
+
+   
+  </div>
+  
+  <button type="button" class="btn btn-info btn-lg" (click)="openModal()">Add Question</button>
+  
+  
+  
+  
+  
+  
+  <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+       <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                   <div class="modal-header">
+                         <h4 class="modal-title">Questions</h4>
+                         <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                       </div>
+              <div class="modal-body">
+               
+                <div>question<textarea rows="2" cols="45"></textarea></div>
+                  option<input type="text" > &nbsp;&nbsp;
+                  <button type="button" class="btn btn-primary">+</button>
+                  
+                  
+                       
+                   <div class="modal-footer">
+                    <button  class="btn btn-secondary" id="btn">Add</button>
+                         <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+                       </div>
+                      
+          </div>
+           </div>
+</div>
+  </div>
+
+
+
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+      $scope.names = ["Sin", "Tobias", "Linus"];
+  });
+  </script> 

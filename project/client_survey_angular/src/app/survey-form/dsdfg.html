@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <ol>
+       <li ng-repeat="element in elements">
+         <input type="text" ng-model="element.value"/>
+       </li>
+    </ol>
+    <br/>
+    <b>Click here to add Textbox:</b><br/><input type="button" value="New Item" ng-click="newItem()"/>
+    <br/>
+    <br/>
+    <b>Click here to see ng-model value:</b><br/>
+    <input type="button" value="submit" ng-click="show(elements)">
+  </div>
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    var counter=0;
+      $scope.elements = [ {id:counter, value : ''} ];
+      $scope.newItem = function(){
+        counter++;
+        $scope.elements.push(  { id:counter,value:''} );
+    }
+    $scope.show=function(elements) {
+        alert(JSON.stringify(elements));   
+    }
+  });
+</script>
+</body>
+</html>
