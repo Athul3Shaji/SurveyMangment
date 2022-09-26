@@ -1,10 +1,10 @@
 package com.survey.clientsurvey.model;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name="option_survey")
@@ -16,9 +16,13 @@ public class Option {
     private int option_id;
     @Column
     private String option_name;
-    @Column
-    @JsonFormat(timezone = "GMT+03:00")
-    private Date CreateDateTime;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date opt_cre_date;
+
+    public Option(){
+
+    }
 
     public int getOption_id() {
         return option_id;
@@ -36,17 +40,11 @@ public class Option {
         this.option_name = option_name;
     }
 
-    public Date getCreateDateTime() {
-        return CreateDateTime;
-    }
 
-    public void setCreateDateTime(Date createDateTime) {
-        CreateDateTime = createDateTime;
-    }
-
-    public Option(int option_id, String option_name, Date createDateTime) {
+    public Option(int option_id, String option_name, Date opt_cre_date) {
         this.option_id = option_id;
         this.option_name = option_name;
-        CreateDateTime = createDateTime;
+
+        this.opt_cre_date = opt_cre_date;
     }
 }

@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { SurveyListComponent } from './survey-list/survey-list.component';
 import { SurveyFormComponent } from './survey-form/survey-form.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { ExampleComponent } from './example/example.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { ClientLoginComponent } from './client-login/client-login.component';
+
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ExampleComponent } from './example/example.component';
     AppComponent,
     SurveyListComponent,
     SurveyFormComponent,
-    ExampleComponent,
+    ClientLoginComponent,
+  
    
   ],
   imports: [
@@ -23,6 +25,7 @@ import { ExampleComponent } from './example/example.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   
 
   ],

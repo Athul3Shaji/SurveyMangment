@@ -1,6 +1,10 @@
 package com.survey.clientsurvey.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="survey_info")
@@ -14,13 +18,22 @@ public class  ClientSurvey {
     @Column
     String survey_description;
 
+
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
+
+
+
     public ClientSurvey() {
     }
 
-    public ClientSurvey(int survey_id, String survey_name, String survey_description) {
+    public ClientSurvey(int survey_id, String survey_name, String survey_description,Date date) {
         this.survey_id = survey_id;
         this.survey_name = survey_name;
         this.survey_description = survey_description;
+        this.date = date;
     }
 
     public int getSurvey_id() {
@@ -47,7 +60,13 @@ public class  ClientSurvey {
         this.survey_description = survey_description;
     }
 
-    @OneToOne
-    @JoinColumn(name = "option_id")
-    private Option option ;
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+
 }

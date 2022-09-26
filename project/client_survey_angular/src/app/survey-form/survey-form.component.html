@@ -25,13 +25,7 @@
             required #email="ngModel" rows="4" cols="50"></textarea>
           <div [hidden]="!email.pristine" class="alert alert-danger">Description Required</div>
         </div>
-        Question Type
-        <div ng-app="myApp" ng-controller="myCtrl">
-
-          <select ng-model="selectedName" ng-options="x for x in names">
-          </select>
-          
-          </div>
+        
           
        
       </form>
@@ -59,18 +53,62 @@
                          <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
                        </div>
               <div class="modal-body">
-               
-                <div>question<textarea rows="2" cols="45"></textarea></div>
-                  option<input type="text" > &nbsp;&nbsp;
-                  <button type="button" class="btn btn-primary">+</button>
+                Question Type
+        <div ng-app="myApp" ng-controller="myCtrl">
+
+          <select>Questions
+            <option value="1">Single Type</option>
+            <option value="2">Multi Type</option>
+            <option value="3">Free Type</option>
+          </select>
+          
+          </div>
+          <div class="container">
+  
+    
+    
+            <form [formGroup]="productForm" (ngSubmit)="onSubmitone()">
+              
+              <p>
+                <label for="name">Question Name:</label>
+                <input type="text" id="name" name="name" formControlName="name" class="form-control">
+              </p>
+            
+              <table   formArrayName="options">
+                <tr>
+                  <th >Options:</th>
+                  <th ><button type="button" (click)="addQuantity()" class="btn btn-primary">+</button></th>
+                </tr>
+                <tr *ngFor="let quantity of options().controls; let i=index" [formGroupName]="i">
+                  <td>
+                      
+                      <input type="text" formControlName="opt" class="form-control">
+                  </td>
                   
+                  <td>
+                      <button (click)="removeQuantity(i)" class="btn btn-danger">-</button>
+                  </td>
+                </tr>
+              </table>
+             
+              
+              
+            
+              
+            <br/>
+           
+          
+        
+               
+                
                   
                        
                    <div class="modal-footer">
                     <button  class="btn btn-secondary" id="btn">Add</button>
                          <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
                        </div>
-                      
+                      </form>
+                      {{this.productForm.value | json}}
           </div>
            </div>
 </div>
@@ -78,9 +116,4 @@
 
 
 
-<script>
-  var app = angular.module('myApp', []);
-  app.controller('myCtrl', function($scope) {
-      $scope.names = ["Sin", "Tobias", "Linus"];
-  });
-  </script> 
+
