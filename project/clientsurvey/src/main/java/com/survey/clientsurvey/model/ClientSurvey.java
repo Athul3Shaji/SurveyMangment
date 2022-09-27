@@ -1,6 +1,7 @@
 package com.survey.clientsurvey.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sun.istack.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -23,17 +24,22 @@ public class  ClientSurvey {
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
+    @Column
 
+     String status="1";
 
+    @Column
+     String q_type;
 
     public ClientSurvey() {
     }
 
-    public ClientSurvey(int survey_id, String survey_name, String survey_description,Date date) {
+    public ClientSurvey(int survey_id, String survey_name, String survey_description,Date date,String status) {
         this.survey_id = survey_id;
         this.survey_name = survey_name;
         this.survey_description = survey_description;
         this.date = date;
+        this.status = status;
     }
 
     public int getSurvey_id() {
@@ -68,5 +74,23 @@ public class  ClientSurvey {
         this.date = date;
     }
 
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getQ_type() {
+        return q_type;
+    }
+
+    public void setQ_type(String q_type) {
+        this.q_type = q_type;
+    }
+
+    public ClientSurvey(String q_type) {
+        this.q_type = q_type;
+    }
 }

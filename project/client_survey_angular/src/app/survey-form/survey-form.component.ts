@@ -4,6 +4,8 @@ import { never } from 'rxjs';
 import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms'
 import { Survey } from '../survey';
 import { SurveyServiceService } from '../survey-service.service';
+import { OtionService } from '../shared/otion.service';
+import { Option } from '../option';
 
 @Component({
   selector: 'app-survey-form',
@@ -16,10 +18,12 @@ export class SurveyFormComponent  {
   display!: string;
   productForm: FormGroup ;
   
+  option ! : Option;
+  
   constructor(private route :ActivatedRoute, 
-    private router  :Router, private surveyService : SurveyServiceService,private fb:FormBuilder )  {
+    private router  :Router, private surveyService : SurveyServiceService,private fb:FormBuilder ,private otionService : OtionService)  {
       this.survey =  new Survey;
-
+      this.option = new Option;
        
     this.productForm = this.fb.group({
       name: '',
@@ -29,8 +33,8 @@ export class SurveyFormComponent  {
 
      onSubmit(){
       var  data = this.surveyService.save(this.survey).subscribe(result => this.gotoUserList());
-      console.log(data )
-      console.log(this.productForm.value);
+      
+      console.log(data)
 
      }
     
@@ -64,8 +68,11 @@ export class SurveyFormComponent  {
       this.options().removeAt(i);
     }
      
+    reload(){
+      location.reload();
+    }
     onSubmitone() {
-      
-     
+      this.otionService.optionsave(this.option).subscribe(result => this.reload());
+      console.log(this.productForm.value);
     }
 }

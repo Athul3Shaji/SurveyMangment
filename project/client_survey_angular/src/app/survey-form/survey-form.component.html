@@ -2,7 +2,7 @@
 
 <div class="card my-2">
     <div class="card-body">
-      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm"  >
         <button type="submit" [disabled]="!userForm.form.valid" 
           class="btn btn-info">Submit</button><br><br><br>
         <div class="form-group">
@@ -26,7 +26,7 @@
           <div [hidden]="!email.pristine" class="alert alert-danger">Description Required</div>
         </div>
         
-          
+
        
       </form>
    
@@ -56,11 +56,12 @@
                 Question Type
         <div ng-app="myApp" ng-controller="myCtrl">
 
-          <select>Questions
-            <option value="1">Single Type</option>
-            <option value="2">Multi Type</option>
-            <option value="3">Free Type</option>
-          </select>
+          Question Type
+      
+          <div class="form-group">
+          
+          </div>
+          
           
           </div>
           <div class="container">
@@ -68,10 +69,11 @@
     
     
             <form [formGroup]="productForm" (ngSubmit)="onSubmitone()">
+             
               
               <p>
                 <label for="name">Question Name:</label>
-                <input type="text" id="name" name="name" formControlName="name" class="form-control">
+                <input type="text" id="qname" name="qname" formControlName="name" class="form-control"  [(ngModel)]="option.question"  >
               </p>
             
               <table   formArrayName="options">
@@ -82,7 +84,7 @@
                 <tr *ngFor="let quantity of options().controls; let i=index" [formGroupName]="i">
                   <td>
                       
-                      <input type="text" formControlName="opt" class="form-control">
+                      <input type="text" formControlName="opt" class="form-control"  [(ngModel)]="option.option_name"   >
                   </td>
                   
                   <td>
@@ -104,7 +106,7 @@
                   
                        
                    <div class="modal-footer">
-                    <button  class="btn btn-secondary" id="btn">Add</button>
+                    <button type="submit"  class="btn btn-secondary" id="btn" >Add</button>
                          <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
                        </div>
                       </form>
