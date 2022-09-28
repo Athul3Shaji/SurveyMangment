@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OptionService {
+public class  OptionService {
 
     @Autowired
    public OptionRepository optionRepository;

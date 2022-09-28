@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Oprequest } from '../oprequest';
 import { Option } from '../option';
 
 @Injectable({
@@ -14,7 +15,7 @@ export class OtionService {
   }
 
 
-  public optionsave(option : Option){
-    return this.http.post<Option>(this.optionUrl,option);
+  public optionsave(oprequest : Oprequest){
+    return this.http.post<Oprequest>(this.optionUrl,oprequest);
    }
 }

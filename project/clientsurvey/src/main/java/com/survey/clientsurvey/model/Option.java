@@ -14,8 +14,7 @@ public class Option {
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int option_id;
-    @Column
-    String question;
+
     @Column
      String option_name;
 
@@ -48,17 +47,8 @@ public class Option {
     public Option(int option_id, String question,String option_name, Date opt_cre_date) {
         this.option_id = option_id;
         this.option_name = option_name;
-        this.question = question;
+
         this.opt_cre_date = opt_cre_date;
     }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
 
 }

@@ -6,6 +6,8 @@ import { Survey } from '../survey';
 import { SurveyServiceService } from '../survey-service.service';
 import { OtionService } from '../shared/otion.service';
 import { Option } from '../option';
+import { Oprequest } from '../oprequest';
+import { Question } from '../question';
 
 @Component({
   selector: 'app-survey-form',
@@ -18,12 +20,25 @@ export class SurveyFormComponent  {
   display!: string;
   productForm: FormGroup ;
   
-  option ! : Option;
+ oprequest ! :Oprequest
+ option! :Option
+ question ! :Question
+
+  contactForm:FormGroup | undefined;
+ 
+  countries = [
+    { id: 1, name: "Single Type Question" },
+    { id: 2, name: "Multi type " },
+    { id: 3, name: "Free Type" },
+   
+  ];
   
   constructor(private route :ActivatedRoute, 
     private router  :Router, private surveyService : SurveyServiceService,private fb:FormBuilder ,private otionService : OtionService)  {
       this.survey =  new Survey;
+      this.oprequest = new Oprequest;
       this.option = new Option;
+      this.question=new Question;
        
     this.productForm = this.fb.group({
       name: '',
@@ -54,6 +69,7 @@ export class SurveyFormComponent  {
     }
      
     newQuantity(): FormGroup {
+      
       return this.fb.group({
         opt: '',
         
@@ -61,6 +77,7 @@ export class SurveyFormComponent  {
     }
      
     addQuantity() {
+      console.log(this.options)
       this.options().push(this.newQuantity());
     }
      
@@ -69,10 +86,14 @@ export class SurveyFormComponent  {
     }
      
     reload(){
-      location.reload();
+      
     }
     onSubmitone() {
-      this.otionService.optionsave(this.option).subscribe(result => this.reload());
-      console.log(this.productForm.value);
+      console.log(this.oprequest.question = this.question)
+      console.log(this.oprequest.option = this.option)
+      var data = this.otionService.optionsave(this.oprequest).subscribe(result => this.reload());
+      console.log(data);
     }
+   
+    
 }

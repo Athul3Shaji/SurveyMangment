@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:40183")
 public class ClientController {
     @Autowired
    private ClientSurveyService clientSurveyService;
