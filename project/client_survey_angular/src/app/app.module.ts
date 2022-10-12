@@ -10,6 +10,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ClientLoginComponent } from './client-login/client-login.component';
 import { QuestionComponent } from './question/question.component';
 import { QuestionViewComponent } from './question-view/question-view.component';
+import { EditsurveyComponent } from './editsurvey/editsurvey.component';
 
 
 
@@ -21,6 +22,7 @@ import { QuestionViewComponent } from './question-view/question-view.component';
     ClientLoginComponent,
     QuestionComponent,
     QuestionViewComponent,
+    EditsurveyComponent,
   
    
   ],

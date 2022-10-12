@@ -3,7 +3,6 @@ import { Survey } from '../survey';
 import { SurveyServiceService } from '../survey-service.service';
 import { ActivatedRoute,Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-survey-list',
   templateUrl: './survey-list.component.html',
@@ -41,6 +40,16 @@ export class SurveyListComponent implements OnInit {
     sessionStorage.setItem("survey_id",JSON.stringify(id));
     this.router.navigate(['/question']);
 
+  }
+
+  onEdit(id :number){
+    console.log("edit id: ",id)
+    sessionStorage.setItem("edit_id",JSON.stringify(id))
+  //  var k = this.surveyservice.getSurvey(id).subscribe(data=>{
+  //   this.survey=data
+  //  })
+  //  console.log(k)
+   this.router.navigate(['/editsurvey'])
   }
 
 }

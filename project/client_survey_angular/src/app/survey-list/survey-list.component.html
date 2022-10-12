@@ -15,6 +15,7 @@
             <td>{{ surveys.survey_description }}</td>
            <!-- <td><button type="button" class="btn btn-primary">Edit</button></td>  -->
            <td><button type="button" class="btn btn-primary"(click)="onQuestion(surveys.survey_id)">Question</button></td> 
+           <td><button type="button" class="btn btn-secondary" (click)="onEdit(surveys.survey_id)">Edit</button></td> 
 
             <td><button type="button" class="btn btn-secondary" (click)="deleteSurvey(surveys.survey_id)">Delete</button></td> 
           </tr>

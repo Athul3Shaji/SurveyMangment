@@ -1,0 +1,38 @@
+
+
+<p *ngFor="let option of options">
+
+</p>
+
+<div class="row">
+      <div class="card col-md-6 offset-md-3 offset-md-3">
+            <h3 class="text-center"> Update Survey </h3>
+          <div class="row">
+              
+            
+              <div class="card-body">
+                  <form  (ngSubmit)="onUpdate(234)">
+                        <!-- <tr *ngFor="let surveys of survey">
+                              <td>{{ surveys.survey_id }}</td>
+                              <td>{{ surveys.survey_name }}</td>
+                              <td>{{ surveys.survey_description }}</td></tr> -->
+                       
+
+                      <div class="form-group">
+                          <label> Survey Name</label>
+                          <input type="text" class="form-control" id="firstName" 
+                              name="firstName" [(ngModel)]="survey.survey_name" >
+                      </div>
+  
+                      <div class="form-group">
+                          <label>Survey Description</label>
+                          <input type="text" class="form-control" id="lastName" 
+                              name="lastName" [(ngModel)]="survey.survey_description">
+                      </div>
+  
+                       <!-- <p *ngFor="let surveys of survey"> -->
+                      
+                      <button type="submit" class="btn btn-success">Update</button>
+                  
+                  </form>
+              </div>

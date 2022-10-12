@@ -26,5 +26,12 @@ export class SurveyServiceService {
    deleteSurvey(id: number): Observable<any> {
     return this.http.delete(`${this.clientUrl}/${id}`, { responseType: 'text' });
   }
+  public getSurvey(id : number):Observable<Survey[]>{
+    return this.http.get<Survey[]>(this.clientUrl+'/'+id)
+  }
+
+  public update(id :number,survey : Survey):Observable<Object>{
+    return this.http.put<Survey>(`${this.clientUrl}/${id}`,survey);
+  }
  
 }
