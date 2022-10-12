@@ -25,6 +25,10 @@ public class QuestionService {
             return questions;
 
         }
+    public List<Question> getQuestion(Integer survey_id){
+        return questionRepository.findBySurvey(survey_id);
+
+    }
 
         public void addQuestion(Question question) {
             questionRepository.save(question);

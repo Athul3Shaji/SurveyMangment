@@ -26,8 +26,8 @@ public class  OptionService {
         optionRepository.save(option);
     }
 
-    public Optional<Option> getOption(Integer option_id){
-        return  optionRepository.findById(option_id);
+    public List<Option> getOption(Integer question_id){
+        return  optionRepository.findByQuest(question_id);
 
     }
     public void updateOption(Integer option_id , Option  option){

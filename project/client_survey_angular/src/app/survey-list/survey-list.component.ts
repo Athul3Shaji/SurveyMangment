@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Survey } from '../survey';
 import { SurveyServiceService } from '../survey-service.service';
+import { ActivatedRoute,Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-survey-list',
@@ -11,7 +13,8 @@ export class SurveyListComponent implements OnInit {
    
   survey !: Survey[];
 
-  constructor(private surveyservice : SurveyServiceService ) { }
+
+  constructor(private surveyservice : SurveyServiceService,private router  :Router, ) { }
 
   ngOnInit(): void {
 
@@ -22,6 +25,7 @@ export class SurveyListComponent implements OnInit {
   }
 
   deleteSurvey(id: number) {
+    console.log(id)
     this.surveyservice.deleteSurvey(id)
       .subscribe(
         data => {
@@ -30,6 +34,13 @@ export class SurveyListComponent implements OnInit {
         },
         error => console.log(error));
         location.reload();
+  }
+  onQuestion(id:number){
+    
+    console.log("number",id)
+    sessionStorage.setItem("survey_id",JSON.stringify(id));
+    this.router.navigate(['/question']);
+
   }
 
 }

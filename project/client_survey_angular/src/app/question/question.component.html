@@ -1,0 +1,70 @@
+<p>question works!</p>
+
+
+<form (ngSubmit)="onSubmitone()" >
+              
+              
+    Question Type 
+          <select [(ngModel)]="question.question_type"  [ngModelOptions]="{standalone: true}" >
+            
+            <option *ngFor="let country of countries"  >{{country.name}}</option>
+          </select>
+         
+          
+          <p>
+  
+          <label for="name">Question Name:</label>
+          <input type="text" id="qname" name="qname" [ngModelOptions]="{standalone: true}"     [(ngModel)]="question.question"   >
+        </p>
+      
+        <button type="submit"  
+        class="btn btn-info">Add </button>      
+      
+         
+            <!-- <th >Options:</th>
+           
+              <input  type="text"   [ngModelOptions]="{standalone: true}"  [(ngModel)]="option.option_name" >        
+           
+             -->
+     
+       
+             
+        
+      
+        
+      <br/>
+     
+    
+  
+         
+          
+            
+                 
+            
+              <!-- <button type="submit"  class="btn btn-secondary" id="btn" >Add/button> -->
+                   <!-- <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button> -->
+                
+
+            </form>
+            <br>
+            <br>
+            <br>
+
+
+
+            <!-- <form> <th >Options:</th>
+           
+              <input  type="text"   [ngModelOptions]="{standalone: true}"  [(ngModel)]="option.option_name" >        
+            
+              <button type="submit"  
+              class="btn btn-info" (click)="reload()">Add Option </button>  
+            
+            </form> -->
+            
+
+
+
+
+
+ <div>           <app-question-view></app-question-view>
+ </div>

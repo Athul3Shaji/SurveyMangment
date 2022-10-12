@@ -3,8 +3,7 @@
 <div class="card my-2">
     <div class="card-body">
       <form (ngSubmit)="onSubmit()" #userForm="ngForm"  >
-        <button type="submit" [disabled]="!userForm.form.valid" 
-          class="btn btn-info">Submit</button><br><br><br>
+        <br><br><br>
         <div class="form-group">
           <label for="name">Survey Name</label>
           <input type="text" [(ngModel)]="survey.survey_name" 
@@ -27,18 +26,19 @@
         </div>
         
 
-       
+        <button type="submit"  
+        class="btn btn-info" >Submit</button> 
+        
       </form>
-   
+    
       
     </div>
-
-
+  
 
    
   </div>
   
-  <button type="button" class="btn btn-info btn-lg" (click)="openModal()">Add Question</button>
+  <!-- <button type="button" class="btn btn-info btn-lg" (click)="openModal()">Add Question</button>
   
   
   
@@ -63,7 +63,7 @@
   
     
     
-            <form [formGroup]="productForm" (ngSubmit)="onSubmitone()">
+            <form (ngSubmit)="onSubmitone()">
               
               
           Question Type 
@@ -76,26 +76,17 @@
                 <p>
         
                 <label for="name">Question Name:</label>
-                <input type="text" id="qname" name="qname" formControlName="name" class="form-control"  [(ngModel)]="question.question"  >
+                <input type="text" id="qname" name="qname" [ngModelOptions]="{standalone: true}"     [(ngModel)]="question.question"   >
               </p>
             
-              <table   formArrayName="options">
-                <tr>
+            
+               
                   <th >Options:</th>
-                  <th ><button type="button" (click)="addQuantity()" class="btn btn-primary">+</button></th>
-                </tr>
-                <tr *ngFor="let quantity of options().controls; let i=index" [formGroupName]="i">
-                  <td>
-                      
-                      <input type="text" formControlName="opt" class="form-control"  [(ngModel)]="option.option_name"   >
-                  </td>
+                 
+                    <input  type="text"   [ngModelOptions]="{standalone: true}"  [(ngModel)]="option.option_name" >        
+                 
                   
-                  <td>
-                      <button (click)="removeQuantity(i)" class="btn btn-danger">-</button>
-                      <button type="submit"  class="btn btn-secondary" id="btn"  >Add</button>
-                  </td>
-                </tr>
-              </table>
+           
              
               
               
@@ -114,12 +105,11 @@
                          <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
                        </div>
                       </form>
-                      {{this.productForm.value | json}}
           </div>
-           </div>
-</div>
+           </div> -->
+<!-- </div>
   </div>
+   -->
 
 
-
-
+  

@@ -8,6 +8,8 @@ import { SurveyFormComponent } from './survey-form/survey-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ClientLoginComponent } from './client-login/client-login.component';
+import { QuestionComponent } from './question/question.component';
+import { QuestionViewComponent } from './question-view/question-view.component';
 
 
 
@@ -17,6 +19,8 @@ import { ClientLoginComponent } from './client-login/client-login.component';
     SurveyListComponent,
     SurveyFormComponent,
     ClientLoginComponent,
+    QuestionComponent,
+    QuestionViewComponent,
   
    
   ],

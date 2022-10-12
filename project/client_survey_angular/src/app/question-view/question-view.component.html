@@ -1,0 +1,85 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Question</th>
+            <th scope="col">Type Of Question</th>
+            <th scope="col">Option</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let surveys of question">
+            <td>{{ surveys.question_id }}</td>
+            <td>{{ surveys.question }}</td>
+            <td>{{ surveys.question_type }}</td>
+
+
+          
+            
+              <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal" (click)="add(surveys.question_id)">Add</button>
+                &nbsp;<button type="button" class="btn btn-info"  data-toggle="modal" data-target="#myModalView"  >View</button>
+              </td>
+
+              <td><button type="button" class="btn btn-danger" >Delete</button></td> 
+             
+
+            </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+
+  <form  >
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            
+          </div>
+          <div class="modal-body">
+          
+            <th >Options:</th>
+             
+            <input  type="text"   [ngModelOptions]="{standalone: true}"  [(ngModel)]="option.option_name" >        
+           
+            <button   
+            class="btn btn-info" (click)="addOption()">Add  </button>         </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+   </form>
+
+   <form >
+    <div class="modal fade" id="myModalView" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            
+          </div>
+          <div class="modal-body">
+            <td>Options </td>
+            <p *ngFor="let option of options">
+              
+              <td>{{ option.option_name }}</td></p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      
+        </div></div></div>
+   </form>

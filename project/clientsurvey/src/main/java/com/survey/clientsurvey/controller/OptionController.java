@@ -1,11 +1,15 @@
 package com.survey.clientsurvey.controller;
 
+import com.survey.clientsurvey.model.ClientSurvey;
 import com.survey.clientsurvey.model.Option;
 import com.survey.clientsurvey.model.Question;
 import com.survey.clientsurvey.model.QuestionRequest;
+import com.survey.clientsurvey.repository.QuestionRepository;
 import com.survey.clientsurvey.service.OptionService;
 import com.survey.clientsurvey.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,27 +17,32 @@ import java.util.Optional;
 
 
 @RestController
-@CrossOrigin(origins="http://localhost:40183")
+@CrossOrigin(origins="http://localhost:4200")
 public class OptionController {
     @Autowired
     public OptionService optionService;
-    @Autowired
-    public QuestionService questionService;
+
 
     @RequestMapping(value = "/options")
     public List<Option> getAllOptions(){
         return optionService.getAllOptions();
     }
 
-    @RequestMapping(value= "/options/{option_id}")
-    public Optional<Option> getOption(@PathVariable Integer option_id){
-        return optionService.getOption(option_id);
+
+
+
+    @RequestMapping(value= "/options/{question_id}")
+    public List<Option> getOption(@PathVariable Integer question_id){
+        return optionService.getOption(question_id);
+
 
     }
+
     @RequestMapping(value = "/options",method = RequestMethod.POST)
-    public void addOption(@RequestBody QuestionRequest req){
-        optionService.addOption(req.option);
-        questionService.addQuestion(req.question);
+    public void addOption(@RequestBody Option option){
+//        questionService.addQuestion(req.question);
+
+        optionService.addOption(option);
     }
 
     @RequestMapping(value = "/options/{option_id}", method = RequestMethod.PUT)
@@ -46,4 +55,13 @@ public class OptionController {
         optionService.deleteOption(option_id);
 
     }
+
+
+
+//    @RequestMapping(value= "/questions/{survey_id}")
+//    public ResponseEntity<List<Question>> getQuestion(@RequestParam Integer survey_id){
+//        return new ResponseEntity<List<Question>>(que.findBySurveyId(survey_id), HttpStatus.OK);
+//
+//    }
+
 }

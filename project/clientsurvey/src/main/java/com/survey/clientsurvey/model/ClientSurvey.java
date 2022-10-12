@@ -5,14 +5,17 @@ import com.sun.istack.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="survey_info")
 public class  ClientSurvey {
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int survey_id;
     @Column
     String survey_name;
@@ -30,6 +33,8 @@ public class  ClientSurvey {
 
     @Column
      String q_type;
+    @OneToMany(mappedBy ="survey_id" , cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Question> questions;
 
     public ClientSurvey() {
     }
