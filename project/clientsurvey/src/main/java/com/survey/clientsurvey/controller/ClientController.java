@@ -20,7 +20,7 @@ public class ClientController {
     }
 
     @RequestMapping(value= "/clients/{survey_id}")
-    public Optional<ClientSurvey> getClient(@PathVariable Integer survey_id){
+    public List<ClientSurvey> getClient(@PathVariable Integer survey_id){
         return clientSurveyService.getClient(survey_id);
 
     }

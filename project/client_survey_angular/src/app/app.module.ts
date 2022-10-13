@@ -11,6 +11,7 @@ import { ClientLoginComponent } from './client-login/client-login.component';
 import { QuestionComponent } from './question/question.component';
 import { QuestionViewComponent } from './question-view/question-view.component';
 import { EditsurveyComponent } from './editsurvey/editsurvey.component';
+import { EditsurveyviewComponent } from './editsurveyview/editsurveyview.component';
 
 
 
@@ -23,6 +24,7 @@ import { EditsurveyComponent } from './editsurvey/editsurvey.component';
     QuestionComponent,
     QuestionViewComponent,
     EditsurveyComponent,
+    EditsurveyviewComponent,
   
    
   ],

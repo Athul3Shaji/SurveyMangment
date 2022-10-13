@@ -25,8 +25,8 @@ public class ClientSurveyService {
     public void addClient(ClientSurvey clientSurvey){
         clientRepository.save(clientSurvey);
     }
-    public Optional<ClientSurvey> getClient(Integer survey_id){
-        return  clientRepository.findById(survey_id);
+    public List<ClientSurvey> getClient(Integer survey_id){
+        return  clientRepository.findByGet(survey_id);
 
     }
     public void updateClient(Integer survey_id , ClientSurvey  clientSurvey){

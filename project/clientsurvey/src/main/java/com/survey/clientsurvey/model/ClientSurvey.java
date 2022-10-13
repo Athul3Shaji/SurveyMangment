@@ -33,8 +33,7 @@ public class  ClientSurvey {
 
     @Column
      String q_type;
-    @OneToMany(mappedBy ="survey_id" , cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Question> questions;
+
 
     public ClientSurvey() {
     }
@@ -87,15 +86,4 @@ public class  ClientSurvey {
         this.status = status;
     }
 
-    public String getQ_type() {
-        return q_type;
-    }
-
-    public void setQ_type(String q_type) {
-        this.q_type = q_type;
-    }
-
-    public ClientSurvey(String q_type) {
-        this.q_type = q_type;
-    }
 }

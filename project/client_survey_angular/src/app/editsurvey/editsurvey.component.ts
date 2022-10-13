@@ -15,28 +15,33 @@ export class EditsurveyComponent implements OnInit {
 
   options ! : Option[]
    surveys ! : Survey[];
-   survey ! : Survey;
+   surveyedit ! : Survey;
   constructor(private otionService : OtionService,private surveyService : SurveyServiceService) {
-    this.survey= new Survey;
+    this.surveyedit = new Survey;
    }
 
   ngOnInit(): void {
     var id = JSON.parse(sessionStorage.getItem('edit_id') || '{}' );
-    this.otionService.findAllOptions().subscribe(data=>{
-      this.options = data;
+    // var c =this.otionService.findAllOptions().subscribe(data=>{
+    //   this.options = data;
 
-    })
-   var k= this.surveyService.getSurvey(id).subscribe(data=>{
-        this.surveys=data
-  })
-  console.log(k)
+    // })
+    console.log(id)
+    this.surveyService.getSurvey(id).subscribe(data=>{
+    this.surveys=data
+   });
+   
+  //  console.log(this.survey)
+  //  this.surveyService.update(id).subscribe(result=> this.reload())
+    
 }
 
-  onUpdate(id:number){
+  onUpdate(id : number){
 
-    console.log("edit one",id)
-    console.log
-    this.surveyService.update(234,this.survey).subscribe(result=> this.reload())
+    // console.log("edit one",id)
+    this.surveyedit.survey_id=id
+    console.log("data",this.surveyedit)
+    this.surveyService.update(id,this.surveyedit).subscribe(result=> this.reload())
     
 
   }
