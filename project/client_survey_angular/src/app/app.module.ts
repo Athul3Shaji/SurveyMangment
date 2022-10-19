@@ -12,6 +12,9 @@ import { QuestionComponent } from './question/question.component';
 import { QuestionViewComponent } from './question-view/question-view.component';
 import { EditsurveyComponent } from './editsurvey/editsurvey.component';
 import { EditsurveyviewComponent } from './editsurveyview/editsurveyview.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 
@@ -25,6 +28,9 @@ import { EditsurveyviewComponent } from './editsurveyview/editsurveyview.compone
     QuestionViewComponent,
     EditsurveyComponent,
     EditsurveyviewComponent,
+    HomeComponent,
+    HeaderComponent,
+    LogoutComponent,
   
    
   ],

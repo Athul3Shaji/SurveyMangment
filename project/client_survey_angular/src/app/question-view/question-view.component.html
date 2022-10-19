@@ -7,6 +7,7 @@
             <th scope="col">Question</th>
             <th scope="col">Type Of Question</th>
             <th scope="col">Option</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -21,10 +22,10 @@
               <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal" (click)="add(surveys.question_id)">Add</button>
                 &nbsp;<button type="button" class="btn btn-success"  data-toggle="modal" data-target="#myModalView"  >View</button>
               </td>
-              <td><button type="button" class="btn btn-info" >Edit</button></td> 
+              <td><button type="button" class="btn btn-info" >Edit</button>
 
 
-              <td><button type="button" class="btn btn-danger" >Delete</button></td> 
+              &nbsp;&nbsp;<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalViewdelete" (click)="delete(surveys.question_id)" >Delete</button></td> 
              
 
             </tr>
@@ -49,7 +50,7 @@
           
             <th >Options:</th>
              
-            <input  type="text"   [ngModelOptions]="{standalone: true}"  [(ngModel)]="option.option_name" >        
+            <input  type="text"   [ngModelOptions]="{standalone:  true}"  [(ngModel)]="option.option_name" >        
            
             <button   
             class="btn btn-info" (click)="addOption()">Add  </button>         </div>
@@ -79,6 +80,33 @@
               <td>{{ option.option_name }}</td></p>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      
+        </div></div></div>
+   </form>
+
+   <!-- modal for using deletion -->
+
+
+   <form >
+    <div class="modal fade" id="myModalViewdelete" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            
+          </div>
+          <div class="modal-body">
+             Are You Sure!!!
+            
+          <div class="modal-footer">
+            &nbsp;&nbsp;<button type="button" class="btn btn-danger" (click)="onDelete()" >Delete</button>
+
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           </div>
         </div>
         

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Oprequest } from '../oprequest';
@@ -11,6 +11,7 @@ import { Question } from '../question';
 export class OtionService {
   optionUrl  !: string;
   questionUrl !: string
+  header = new HttpHeaders()
   
   constructor(private http :HttpClient) { 
     this.optionUrl = 'http://localhost:8082/options';
@@ -20,6 +21,13 @@ export class OtionService {
     return this.http.get<Question[]>(this.questionUrl);
   }
   public save(question : Question){
+    let token=localStorage.getItem('accessToken')
+    console.log('accessToken',token);
+    this.header=new HttpHeaders({
+      "Content-Type":"application/json",
+      "Authorization":"deleteSurvey"+token
+  
+    })
     return this.http.post<Question>(this.questionUrl,question);
   }
   public findAllOptions():Observable<Option[]>{
@@ -32,12 +40,18 @@ export class OtionService {
     return this.http.post<Option>(this.optionUrl,option);
    }
    public getQuestion(id : number):Observable<Question[]>{
-    return this.http.get<Question[]>(this.questionUrl+'/'+id);
+    
+    return this.http.get<Question[]>(this.questionUrl+'/surveyId/'+id);
 
 
    }
 
    public getOption(id : number):Observable<Option[]>{
-    return this.http.get<Option[]>(this.optionUrl+'/'+id);
+    return this.http.get<Option[]>(this.optionUrl+'/questionId/'+id);
+   }
+
+   deleteQuestion(id:number):Observable<any>{
+    
+    return this.http.delete(this.questionUrl+'/question_id/'+id);
    }
 }

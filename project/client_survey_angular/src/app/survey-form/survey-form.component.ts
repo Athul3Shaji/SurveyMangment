@@ -47,9 +47,9 @@ export class SurveyFormComponent  implements OnInit {
     });
      }
   ngOnInit(): void {
-    this.surveyService.findAll().subscribe(data=>{
-      this.surveys= data;
-  })
+  //   this.surveyService.findAll().subscribe(data=>{
+  //     this.surveys= data;
+  // })
 }
 
      onSubmit(){

@@ -9,10 +9,12 @@ import { Option } from './option';
 })
 export class SurveyServiceService {
   private clientUrl ! : string;
-  
+  private clientUrladd! : string;
+  header = new HttpHeaders()
 
   constructor(private http : HttpClient) {
-    this.clientUrl = 'http://localhost:8082/clients';
+    this.clientUrl = 'http://localhost:8082/surveys';
+    this.clientUrladd='http://localhost:8082/addsurvey';
     
    }
    public findAll():Observable<Survey[]>{
@@ -21,7 +23,14 @@ export class SurveyServiceService {
    }
    
    public save(survey : Survey){
-    return this.http.post<Survey>(this.clientUrl,survey);
+    let token=localStorage.getItem('accessToken')
+    console.log('accessToken',token);
+    this.header=new HttpHeaders({
+      "Content-Type":"application/json",
+      "Authorization":"AddSurvey"+token
+  
+    })
+    return this.http.post<Survey>(this.clientUrladd,survey,{headers:this.header});
    }
    deleteSurvey(id: number): Observable<any> {
     return this.http.delete(`${this.clientUrl}/${id}`, { responseType: 'text' });

@@ -31,7 +31,7 @@ public class OptionController {
 
 
 
-    @RequestMapping(value= "/options/{question_id}")
+    @RequestMapping(value= "/options/questionId/{question_id}")
     public List<Option> getOption(@PathVariable Integer question_id){
         return optionService.getOption(question_id);
 

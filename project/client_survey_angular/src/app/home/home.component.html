@@ -1,0 +1,36 @@
+<!-- <header>
+  <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+  <div class="top">
+    <button class="btn btn-primary" (click)="Logout()" class="btn"> 
+       
+       Logout</button>
+ </div> -->
+<!-- </header> -->
+<header><app-header></app-header></header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card bg-dark my-5">
+        <div class="card-body">
+          <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
+          <ul class="text-center list-inline py-3">
+            <li class="list-inline-item">
+              <a routerLink="/surveylists" class="btn btn-info">Survey Lists</a>
+                </li>
+            <li class="list-inline-item">
+              <a routerLink="/addsurvey" class="btn btn-info">Add Survey</a>
+                </li>
+          </ul>
+        </div>
+      </div>
+           <router-outlet></router-outlet>
+      </div>
+      <!-- <app-client-login></app-client-login>  </div> -->
+       <!-- <app-editsurvey></app-editsurvey> -->
+      <!-- </div>
+</div>
+
+<!-- <app-survey-form></app-survey-form> -->
+
+
+       <!-- <app-editsurvey></app-editsurvey> -->

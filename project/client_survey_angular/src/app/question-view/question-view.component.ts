@@ -60,5 +60,20 @@ export class QuestionViewComponent implements OnInit {
   reload(){
     location.reload()
   }
+   
+  delete(id:number){
+    console.log(id)
+    sessionStorage.setItem("delete_question_id",JSON.stringify(id));
 
+  }
+  onDelete(){
+    var id =JSON.parse(sessionStorage.getItem('delete_question_id') || '{}')
+
+       this.otionService.deleteQuestion(id).subscribe(result=> this.reloadon());
+
+  }
+  reloadon(){
+    location.reload()
+
+  }
 }

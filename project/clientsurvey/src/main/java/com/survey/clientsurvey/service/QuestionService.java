@@ -1,15 +1,12 @@
 package com.survey.clientsurvey.service;
 
-import com.survey.clientsurvey.model.Option;
 import com.survey.clientsurvey.model.Question;
-import com.survey.clientsurvey.repository.OptionRepository;
 import com.survey.clientsurvey.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 @Service
 
 public class QuestionService {
@@ -34,6 +31,9 @@ public class QuestionService {
             questionRepository.save(question);
         }
 
+        public  void questionDelete(Integer question_id){
+             questionRepository.deleteById(question_id);
 
+        }
     }
 

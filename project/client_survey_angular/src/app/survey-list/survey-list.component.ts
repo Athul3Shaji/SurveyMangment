@@ -23,17 +23,33 @@ export class SurveyListComponent implements OnInit {
     })
   }
 
-  deleteSurvey(id: number) {
-    console.log(id)
-    this.surveyservice.deleteSurvey(id)
+  deleteSurvey(id : number) {
+    sessionStorage.setItem("delete_id",JSON.stringify(id));
+
+    // this.onDelete(id)
+    
+    // this.surveyservice.deleteSurvey(id)
+    //   .subscribe(
+    //     data => {
+    //       console.log(data);
+          
+    //     },
+    //     error => console.log(error));
+        // location.reload(); 
+  
+  }
+ onDelete(){
+  var id = JSON.parse(sessionStorage.getItem('delete_id') || '{}')
+  this.surveyservice.deleteSurvey(id)
       .subscribe(
         data => {
           console.log(data);
           
         },
         error => console.log(error));
-        location.reload();
-  }
+         location.reload(); 
+
+ }
   onQuestion(id:number){
     
     console.log("number",id)

@@ -1,15 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClientLoginComponent } from './client-login/client-login.component';
 import { EditsurveyComponent } from './editsurvey/editsurvey.component';
+import { HomeComponent } from './home/home.component';
+import { LogoutComponent } from './logout/logout.component';
+import { QuestionViewComponent } from './question-view/question-view.component';
 import { QuestionComponent } from './question/question.component';
+import { AuthguardService } from './shared/authguard.service';
 import { SurveyFormComponent } from './survey-form/survey-form.component';
 import { SurveyListComponent } from './survey-list/survey-list.component';
 
 const routes: Routes = [
-  { path: 'surveylists', component: SurveyListComponent },
-  { path: 'addsurvey', component: SurveyFormComponent },
-  {path :'question', component: QuestionComponent},
-  {path:'editsurvey',component:EditsurveyComponent}
+  { path: '', component: ClientLoginComponent },
+
+  { path: 'surveylists', component: SurveyListComponent, },
+  { path: 'addsurvey', component: SurveyFormComponent ,canActivate:[AuthguardService]},
+  {path :'question', component: QuestionComponent,canActivate:[AuthguardService]},
+  {path:'editsurvey',component:EditsurveyComponent,canActivate:[AuthguardService]},
+  {path:'home',component:HomeComponent,canActivate:[AuthguardService]},
+  {path:'questionview',component:QuestionViewComponent,canActivate:[AuthguardService]},
+
+  {path:'login',component:ClientLoginComponent,pathMatch:"full"},
+  { path: 'logout', component:LogoutComponent}
+
+
 ];
 
 
