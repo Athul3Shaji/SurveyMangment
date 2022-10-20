@@ -22,7 +22,7 @@
               <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal" (click)="add(surveys.question_id)">Add</button>
                 &nbsp;<button type="button" class="btn btn-success"  data-toggle="modal" data-target="#myModalView"  >View</button>
               </td>
-              <td><button type="button" class="btn btn-info" >Edit</button>
+              <td><button type="button" class="btn btn-info" (click)="onEdit(surveys.question_id)">Edit</button>
 
 
               &nbsp;&nbsp;<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalViewdelete" (click)="delete(surveys.question_id)" >Delete</button></td> 
@@ -50,7 +50,8 @@
           
             <th >Options:</th>
              
-            <input  type="text"   [ngModelOptions]="{standalone:  true}"  [(ngModel)]="option.option_name" >        
+            <input  type="text"   [ngModelOptions]="{standalone:  true}" 
+             [(ngModel)]="option.option_name" >        
            
             <button   
             class="btn btn-info" (click)="addOption()">Add  </button>         </div>
@@ -113,3 +114,4 @@
       
         </div></div></div>
    </form>
+   <!-- <app-edit-question [inputFromParent]="inputText"></app-edit-question> -->

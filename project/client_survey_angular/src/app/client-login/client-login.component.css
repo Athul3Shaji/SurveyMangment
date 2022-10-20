@@ -1,5 +1,19 @@
 .center {
-    border: 5px solid #020202;
+    border: 20px solid #c2bdbd;
     text-align: center;
-    align-self: ;
+    align-self: center;
+    align-items: center;
+
     }
+
+
+
+form{
+    height: 800px;
+    background-image:url("https://i0.wp.com/www.cirebonkota.go.id/wp-content/uploads/2022/04/ilustrasi-survey-scaled.jpg");
+
+}
+.label{
+    /* font-size: large; */
+    font-size: x-large;
+}

@@ -17,19 +17,16 @@ export class SurveyServiceService {
     this.clientUrladd='http://localhost:8082/addsurvey';
     
    }
+   getAccessToken() {
+    return localStorage.getItem("accessToken")
+  }
    public findAll():Observable<Survey[]>{
     return this.http.get<Survey[]>(this.clientUrl);
 
    }
    
    public save(survey : Survey){
-    let token=localStorage.getItem('accessToken')
-    console.log('accessToken',token);
-    this.header=new HttpHeaders({
-      "Content-Type":"application/json",
-      "Authorization":"AddSurvey"+token
-  
-    })
+   
     return this.http.post<Survey>(this.clientUrladd,survey,{headers:this.header});
    }
    deleteSurvey(id: number): Observable<any> {
@@ -40,7 +37,7 @@ export class SurveyServiceService {
   }
 
   public update(id :number,survey : Survey){
-    return this.http.put<Survey>(this.clientUrl+'/'+id,survey);
+    return this.http.put<Survey>(this.clientUrl+'/editsurvey/'+id,survey);
   }
  
 }

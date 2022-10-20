@@ -1,21 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Option } from '../option';
 import { Question } from '../question';
 import { OtionService } from '../shared/otion.service';
-
+import { EditQuestionComponent } from '../edit-question/edit-question.component';
 @Component({
   selector: 'app-question-view',
   templateUrl: './question-view.component.html',
-  styleUrls: ['./question-view.component.css']
+  styleUrls: ['./question-view.component.css'],
+  
 })
 export class QuestionViewComponent implements OnInit {
+
+  inputText: string = 'Hi...have a nice day - message from parent';
+
 
   question ! :Question[];
   options ! : Option[]
   quest ! : Question
   option ! :Option
+  edit ! : EditQuestionComponent
 
-  constructor(private  otionService : OtionService) { 
+  constructor(private  otionService : OtionService,private router: Router,) { 
     this.option =new Option;
   }
 
@@ -75,5 +81,13 @@ export class QuestionViewComponent implements OnInit {
   reloadon(){
     location.reload()
 
+  }
+
+  onEdit(id : any){
+    console.log("questionId",id)
+    
+    // sessionStorage.setItem("edit_question_id",JSON.stringify(id));
+
+    this.router.navigate(['questions/editquestion/'+id])
   }
 }

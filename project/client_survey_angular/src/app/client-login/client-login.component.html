@@ -1,27 +1,28 @@
-<div class="center"><h2>Login form</h2>  
+<div class="imag">
+<div class="center" ><h2>Client Login</h2>  
   
 <form [formGroup]="loginForm" #LoginInformation (ngSubmit)="onSubmit()">  
   
   <div class="row"> 
     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
     <div class=" col-md-offset-1 col-md-14">  
-        <label for="email"> Email </label>  
+        <label for="email" class="label"> Email </label>  
         <input formControlName="email" class="form-control" type="text">   
-    </div>  
-  </div>  
+    <!-- </div>   -->
+  <!-- </div>   -->
   
-  <div class="row">  
-    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
-    <div class=" col-md-offset-1 col-md-14">  
-        <label for="password"> Password </label>  
+  <!-- <div class="row">   -->
+     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+    <!-- <div class=" col-md-offset-1 col-md-14">   -->
+        <label for="password" class="label"> Password </label>  
        &nbsp;&nbsp;<input formControlName="password" class="form-control" type="password">   
     </div>  
   </div>  
   
   <div class="row" style="margin-top: 40px;">  
-    <div class="col-md-offset-1 col-md-4">  
+    <div class="col-md-offset-1 col-md-2">  
         <button class="btn btn-md btn-primary btn-style"  >Login</button>  
     </div>  
   </div>  
   
-</form>  </div>
+</form>  </div></div>

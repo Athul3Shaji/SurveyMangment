@@ -21,13 +21,7 @@ export class OtionService {
     return this.http.get<Question[]>(this.questionUrl);
   }
   public save(question : Question){
-    let token=localStorage.getItem('accessToken')
-    console.log('accessToken',token);
-    this.header=new HttpHeaders({
-      "Content-Type":"application/json",
-      "Authorization":"deleteSurvey"+token
-  
-    })
+    
     return this.http.post<Question>(this.questionUrl,question);
   }
   public findAllOptions():Observable<Option[]>{

@@ -32,7 +32,8 @@ public class QuestionController {
         return questionService.getQuestion(survey_id);
 
     }
-    @RequestMapping(value="/questions/question_id/{question_id}",method = RequestMethod.DELETE)
+    @RequestMapping(value="/questions/question_id/" +
+            "{question_id}",method = RequestMethod.DELETE)
     public void deleteQuestion(@PathVariable Integer question_id){
      questionService.questionDelete(question_id);
     }

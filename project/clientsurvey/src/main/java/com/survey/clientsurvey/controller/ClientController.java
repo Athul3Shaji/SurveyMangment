@@ -28,7 +28,7 @@ public class ClientController {
         clientSurveyService.addClient(clientSurvey);
     }
 
-    @RequestMapping(value = "/surveys/{survey_id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/surveys/edit  survey/{survey_id}", method = RequestMethod.PUT)
     public void updateStudent(@RequestBody ClientSurvey clientSurvey,@PathVariable Integer survey_id ) {
        clientSurveyService.updateClient(survey_id,clientSurvey);
     }
