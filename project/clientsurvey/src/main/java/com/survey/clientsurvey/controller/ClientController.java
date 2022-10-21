@@ -18,7 +18,7 @@ public class ClientController {
         return clientSurveyService.getAllClients();
     }
 
-    @RequestMapping(value= "/surveys/{survey_id}")
+    @RequestMapping(value= "/surveys/{survey_id}",method = RequestMethod.GET)
     public List<ClientSurvey> getClient(@PathVariable Integer survey_id){
         return clientSurveyService.getClient(survey_id);
 
@@ -28,7 +28,7 @@ public class ClientController {
         clientSurveyService.addClient(clientSurvey);
     }
 
-    @RequestMapping(value = "/surveys/edit  survey/{survey_id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/surveys/editsurvey/{survey_id}", method = RequestMethod.PUT)
     public void updateStudent(@RequestBody ClientSurvey clientSurvey,@PathVariable Integer survey_id ) {
        clientSurveyService.updateClient(survey_id,clientSurvey);
     }

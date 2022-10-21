@@ -38,7 +38,7 @@ export class EditsurveyComponent implements OnInit {
 
   onUpdate(id : number){
 
-    // console.log("edit one",id)
+     console.log("edit one",id)
     this.surveyedit.survey_id=id
     console.log("data",this.surveyedit)
     this.surveyService.update(id,this.surveyedit).subscribe(result=> this.reload())

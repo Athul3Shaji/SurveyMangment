@@ -1,14 +1,9 @@
 package com.survey.clientsurvey.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sun.istack.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name="survey_info")
@@ -31,8 +26,6 @@ public class  ClientSurvey {
 
      String status="1";
 
-    @Column
-     String q_type;
 
 
     public ClientSurvey() {

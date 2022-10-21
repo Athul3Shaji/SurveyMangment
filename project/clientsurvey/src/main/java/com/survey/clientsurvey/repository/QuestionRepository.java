@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface QuestionRepository extends JpaRepository <Question, Integer> {
 
@@ -16,5 +15,8 @@ public interface QuestionRepository extends JpaRepository <Question, Integer> {
 //    Question findQuestion(int  survey_id);
    @Query("FROM Question WHERE survey_id =:survey_id")
    List<Question> findBySurvey(int survey_id);
+
+   @Query("From Question WHERE question_id= :question_id")
+   List<Question> findByQuestion(int question_id);
 
 }

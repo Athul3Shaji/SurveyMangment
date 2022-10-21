@@ -35,5 +35,11 @@ public class QuestionService {
              questionRepository.deleteById(question_id);
 
         }
+
+        public List<Question> getQuestionById(Integer question_id){
+            return questionRepository.findByQuestion(question_id);
+        }
+
+
     }
 

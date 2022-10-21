@@ -11,18 +11,20 @@ import { Question } from '../question';
 export class OtionService {
   optionUrl  !: string;
   questionUrl !: string
+  questionEditUrl ! :string
   header = new HttpHeaders()
   
   constructor(private http :HttpClient) { 
     this.optionUrl = 'http://localhost:8082/options';
     this.questionUrl = 'http://localhost:8082/questions';
+    this.questionEditUrl='http://localhost:8082/editquestion'
   }
   public findAll():Observable<Question[]>{
     return this.http.get<Question[]>(this.questionUrl);
   }
   public save(question : Question){
     
-    return this.http.post<Question>(this.questionUrl,question);
+    return this.http.post<Question>(this.questionUrl+'/addquestion',question);
   }
   public findAllOptions():Observable<Option[]>{
     return this.http.get<Option[]>(this.optionUrl);
@@ -36,8 +38,6 @@ export class OtionService {
    public getQuestion(id : number):Observable<Question[]>{
     
     return this.http.get<Question[]>(this.questionUrl+'/surveyId/'+id);
-
-
    }
 
    public getOption(id : number):Observable<Option[]>{
@@ -45,7 +45,12 @@ export class OtionService {
    }
 
    deleteQuestion(id:number):Observable<any>{
-    
-    return this.http.delete(this.questionUrl+'/question_id/'+id);
+     return this.http.delete(this.questionUrl+'/question_id/'+id);
    }
-}
+
+   public findQuestionById(id :number):Observable<Question[]>{
+    return this.http.get<Question[]>(this.questionEditUrl+'/question_id/'+id)
+   }
+
+   }
+

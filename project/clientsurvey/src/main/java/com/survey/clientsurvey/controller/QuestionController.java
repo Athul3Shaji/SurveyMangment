@@ -16,12 +16,12 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
-    @RequestMapping(value="/questions")
+    @RequestMapping(value="/questions",method = RequestMethod.GET)
     public List<Question> getAllQuestions(){
         return questionService.getAllQuestions();
     }
 
-    @RequestMapping(value = "/questions",method = RequestMethod.POST)
+    @RequestMapping(value = "/questions/addquestion",method = RequestMethod.POST)
     public void addQuestion( @RequestBody Question question){
         questionService.addQuestion(question);
     }
@@ -37,6 +37,9 @@ public class QuestionController {
     public void deleteQuestion(@PathVariable Integer question_id){
      questionService.questionDelete(question_id);
     }
-
+    @RequestMapping(value="editquestion/question_id/{question_id}",method = RequestMethod.GET)
+    public List<Question> getQuestionById(@PathVariable Integer question_id){
+        return questionService.getQuestionById(question_id);
+    }
 
 }

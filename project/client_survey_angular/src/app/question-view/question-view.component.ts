@@ -85,9 +85,9 @@ export class QuestionViewComponent implements OnInit {
 
   onEdit(id : any){
     console.log("questionId",id)
-    
+    var k = btoa(id)
     // sessionStorage.setItem("edit_question_id",JSON.stringify(id));
 
-    this.router.navigate(['questions/editquestion/'+id])
+    this.router.navigate(['questions/editquestion/'+k])
   }
 }
