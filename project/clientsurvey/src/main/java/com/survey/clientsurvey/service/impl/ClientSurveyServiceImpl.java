@@ -1,25 +1,23 @@
-package com.survey.clientsurvey.service;
+package com.survey.clientsurvey.service.impl;
 
-import com.survey.clientsurvey.exception.ResourceNotFoundException;
 import com.survey.clientsurvey.model.ClientSurvey;
 import com.survey.clientsurvey.repository.ClientRepository;
+import com.survey.clientsurvey.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
-public class ClientSurveyService {
+public class ClientSurveyServiceImpl implements ClientService {
     @Autowired
     public ClientRepository clientRepository;
 
-    public List<ClientSurvey> getAllClients(){
-        List<ClientSurvey> clients = new ArrayList<>();
-        clientRepository.findAll()
-                .forEach(clients::add);
-        return clients;
+    public Collection<ClientSurvey> getAllClients(){
+
+        return clientRepository.findAll();
 
     }
 
@@ -31,7 +29,7 @@ public class ClientSurveyService {
 
     }
     public ResponseEntity<ClientSurvey> updateClient(Integer survey_id , ClientSurvey  clientSurvey){
-       ClientSurvey survey = clientRepository.findById(survey_id).orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + survey_id));
+       ClientSurvey survey = clientRepository.findById(survey_id).get();
 
         survey.setSurvey_name(clientSurvey.getSurvey_name());
         survey.setSurvey_description(clientSurvey.getSurvey_description());

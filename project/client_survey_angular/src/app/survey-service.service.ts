@@ -37,7 +37,7 @@ export class SurveyServiceService {
   }
 
   public update(id :number,survey : Survey){
-    return this.http.put<Survey>(this.clientUrl+'/editsurvey/'+id,survey);
+    return this.http.patch(this.clientUrl+'/editsurvey/'+id,survey);
   }
  
 }

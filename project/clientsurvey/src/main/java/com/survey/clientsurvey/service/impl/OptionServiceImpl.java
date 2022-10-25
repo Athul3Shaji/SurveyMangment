@@ -1,4 +1,4 @@
-package com.survey.clientsurvey.service;
+package com.survey.clientsurvey.service.impl;
 
 import com.survey.clientsurvey.model.Option;
 import com.survey.clientsurvey.repository.OptionRepository;
@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class  OptionService {
+public class OptionServiceImpl {
 
     @Autowired
    public OptionRepository optionRepository;

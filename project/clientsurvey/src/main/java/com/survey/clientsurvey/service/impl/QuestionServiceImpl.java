@@ -1,4 +1,4 @@
-package com.survey.clientsurvey.service;
+package com.survey.clientsurvey.service.impl;
 
 import com.survey.clientsurvey.model.Question;
 import com.survey.clientsurvey.repository.QuestionRepository;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 
-public class QuestionService {
+public class QuestionServiceImpl {
 
 
         @Autowired

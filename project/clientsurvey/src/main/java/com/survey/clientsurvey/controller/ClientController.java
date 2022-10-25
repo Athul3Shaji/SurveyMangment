@@ -1,21 +1,25 @@
 package com.survey.clientsurvey.controller;
 
 import com.survey.clientsurvey.model.ClientSurvey;
-import com.survey.clientsurvey.service.ClientSurveyService;
+import com.survey.clientsurvey.service.ClientService;
+import com.survey.clientsurvey.service.impl.ClientSurveyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
 public class ClientController {
     @Autowired
-   private ClientSurveyService clientSurveyService;
+   private ClientSurveyServiceImpl clientSurveyService;
+    @Autowired
+    private ClientService clientService;
 
     @RequestMapping(value = "/surveys")
-    public List<ClientSurvey> getAllClients(){
-        return clientSurveyService.getAllClients();
+    public Collection<ClientSurvey> getAllClients(){
+        return clientService.getAllClients();
     }
 
     @RequestMapping(value= "/surveys/{survey_id}",method = RequestMethod.GET)
@@ -28,8 +32,8 @@ public class ClientController {
         clientSurveyService.addClient(clientSurvey);
     }
 
-    @RequestMapping(value = "/surveys/editsurvey/{survey_id}", method = RequestMethod.PUT)
-    public void updateStudent(@RequestBody ClientSurvey clientSurvey,@PathVariable Integer survey_id ) {
+    @RequestMapping(value = "/surveys/editsurvey/{survey_id}", method = RequestMethod.PATCH)
+    public void updateStudent(@PathVariable(name = "survey_id") Integer survey_id ,@RequestBody ClientSurvey clientSurvey) {
        clientSurveyService.updateClient(survey_id,clientSurvey);
     }
 

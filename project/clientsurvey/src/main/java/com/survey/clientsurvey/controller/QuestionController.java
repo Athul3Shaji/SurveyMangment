@@ -2,7 +2,7 @@ package com.survey.clientsurvey.controller;
 
 
 import com.survey.clientsurvey.model.Question;
-import com.survey.clientsurvey.service.QuestionService;
+import com.survey.clientsurvey.service.impl.QuestionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class QuestionController {
 
     @Autowired
-    private QuestionService questionService;
+    private QuestionServiceImpl questionService;
 
     @RequestMapping(value="/questions",method = RequestMethod.GET)
     public List<Question> getAllQuestions(){

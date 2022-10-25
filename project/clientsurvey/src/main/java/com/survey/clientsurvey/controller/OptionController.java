@@ -1,26 +1,18 @@
 package com.survey.clientsurvey.controller;
 
-import com.survey.clientsurvey.model.ClientSurvey;
 import com.survey.clientsurvey.model.Option;
-import com.survey.clientsurvey.model.Question;
-import com.survey.clientsurvey.model.QuestionRequest;
-import com.survey.clientsurvey.repository.QuestionRepository;
-import com.survey.clientsurvey.service.OptionService;
-import com.survey.clientsurvey.service.QuestionService;
+import com.survey.clientsurvey.service.impl.OptionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
 public class OptionController {
     @Autowired
-    public OptionService optionService;
+    public OptionServiceImpl optionService;
 
 
     @RequestMapping(value = "/options")
