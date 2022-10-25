@@ -1,11 +1,14 @@
 package com.survey.clientsurvey.controller;
 
+import com.survey.clientsurvey.form.SurveyForm;
 import com.survey.clientsurvey.model.ClientSurvey;
 import com.survey.clientsurvey.service.ClientService;
 import com.survey.clientsurvey.service.impl.ClientSurveyServiceImpl;
+import com.survey.clientsurvey.view.ClientSurveyView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.List;
 
@@ -28,8 +31,9 @@ public class ClientController {
 
     }
     @RequestMapping(value = "/addsurvey",method = RequestMethod.POST)
-    public void addClient( @RequestBody ClientSurvey clientSurvey){
-        clientSurveyService.addClient(clientSurvey);
+    public ClientSurveyView addClient(@Valid @RequestBody SurveyForm form)
+    {
+      return   clientService.addClient(form);
     }
 
     @RequestMapping(value = "/surveys/editsurvey/{survey_id}", method = RequestMethod.PATCH)

@@ -1,5 +1,7 @@
 package com.survey.clientsurvey.view;
 
+import com.survey.clientsurvey.model.ClientSurvey;
+
 import java.util.Date;
 
 public class ClientSurveyView {
@@ -12,11 +14,12 @@ public class ClientSurveyView {
 
     private final Date date;
 
-    public ClientSurveyView(int survey_id, String survey_name, String survey_description, Date date) {
-        this.survey_id = survey_id;
-        this.survey_name = survey_name;
-        this.survey_description = survey_description;
-        this.date = date;
+
+    public ClientSurveyView(ClientSurvey clientSurvey) {
+        this.survey_id = clientSurvey.getSurvey_id();
+        this.survey_name = clientSurvey.getSurvey_name();
+        this.survey_description = clientSurvey.getSurvey_description();
+        this.date = clientSurvey.getDate();
     }
 
     public int getSurvey_id() {

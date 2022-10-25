@@ -3,6 +3,7 @@ import { OtionService } from '../shared/otion.service';
 // import { QuestionViewComponent } from '../question-view/question-view.component';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question';
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-edit-question',
   templateUrl: './edit-question.component.html',
@@ -11,7 +12,9 @@ import { Question } from '../question';
 export class EditQuestionComponent implements OnInit {
   
   // @Input() inputFromParent !: string;
-  updateQuestion ! :Question[]
+
+  questionEdit !: FormGroup
+   updateQuestion  :any
   questionedit ! :Question
   countries = [
     { id: 1, name: "Single Type Question" },
@@ -21,7 +24,7 @@ export class EditQuestionComponent implements OnInit {
   ];
 
 
-  constructor(private otionService :OtionService,private route :ActivatedRoute) { 
+  constructor(private otionService :OtionService,private route :ActivatedRoute,private fb : FormBuilder) { 
     this.questionedit = new Question;
   }
 
@@ -34,8 +37,14 @@ export class EditQuestionComponent implements OnInit {
     console.log("decrypt!",n)
     this.otionService.findQuestionById(n).subscribe(data=>{
       this.updateQuestion =data
+      console.log(this.updateQuestion)
 
     })
+
+    this.questionEdit =this.fb.group({
+      questionType :[],
+      questionName :[]
+    });
    
   }
 

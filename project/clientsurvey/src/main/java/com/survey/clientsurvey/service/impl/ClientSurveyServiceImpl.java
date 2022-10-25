@@ -1,8 +1,10 @@
 package com.survey.clientsurvey.service.impl;
 
+import com.survey.clientsurvey.form.SurveyForm;
 import com.survey.clientsurvey.model.ClientSurvey;
 import com.survey.clientsurvey.repository.ClientRepository;
 import com.survey.clientsurvey.service.ClientService;
+import com.survey.clientsurvey.view.ClientSurveyView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,9 +22,9 @@ public class ClientSurveyServiceImpl implements ClientService {
         return clientRepository.findAll();
 
     }
-
-    public void addClient(ClientSurvey clientSurvey){
-        clientRepository.save(clientSurvey);
+ @Override
+    public ClientSurveyView addClient(SurveyForm form){
+        return new ClientSurveyView(clientRepository.save(new ClientSurvey(form)));
     }
     public List<ClientSurvey> getClient(Integer survey_id){
         return  clientRepository.findByGet(survey_id);

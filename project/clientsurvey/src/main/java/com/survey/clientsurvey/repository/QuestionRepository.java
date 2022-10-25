@@ -19,4 +19,7 @@ public interface QuestionRepository extends JpaRepository <Question, Integer> {
    @Query("From Question WHERE question_id= :question_id")
    List<Question> findByQuestion(int question_id);
 
+
+
+
 }

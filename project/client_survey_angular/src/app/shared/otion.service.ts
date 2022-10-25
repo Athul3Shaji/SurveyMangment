@@ -51,6 +51,7 @@ export class OtionService {
    public findQuestionById(id :number):Observable<Question[]>{
     return this.http.get<Question[]>(this.questionEditUrl+'/question_id/'+id)
    }
+   
 
    }
 

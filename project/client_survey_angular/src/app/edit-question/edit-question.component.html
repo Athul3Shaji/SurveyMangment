@@ -9,18 +9,14 @@
                 
               
                 <div class="card-body">
-                    <form (ngSubmit)="onEdito()" >
+                    <form [formGroup]="questionEdit" >
                       
                       
                         <div class="form-group">
                             <label> Question Type</label>
-                            <select [(ngModel)]="questionedit.question_type" [ngModelOptions]="{standalone: true}" [(ngModel)]="questionedit.question_type" >
-            
-                                <option *ngFor="let country of countries"  >{{country.name}}</option>
-                              </select>
                             
-                            <input  [(ngModel)]="questionedit.question_type"  *ngFor="let question of updateQuestion" [(ngModel)]="question.question_type" type="text" class="form-control" id="firstName" 
-                                name="firstName" readonly >
+                            
+                            <input  type="text" class="form-control" formControlName="questionType"   [(ngModel)]="updateQuestion.questionType"  readonly >
                             
 
                            
@@ -28,8 +24,8 @@
     
                         <div class="form-group">
                             <label>Question</label>
-                            <input [(ngModel)]="questionedit.question" *ngFor="let question of updateQuestion" [(ngModel)]="question.question" type="text" class="form-control" id="lastName" 
-                                name="lastName" required >
+                            <input type="text" class="form-control" formControlName="questionName"   [(ngModel)]="updateQuestion.questionName"
+                                 required >
                         </div>
     
                          <!-- <p *ngFor="let surveys of survey"> -->

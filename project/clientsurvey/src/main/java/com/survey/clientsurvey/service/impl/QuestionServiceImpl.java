@@ -1,15 +1,20 @@
 package com.survey.clientsurvey.service.impl;
 
+import com.survey.clientsurvey.exception.NotFoundException;
+import com.survey.clientsurvey.form.QuestionForm;
 import com.survey.clientsurvey.model.Question;
 import com.survey.clientsurvey.repository.QuestionRepository;
+import com.survey.clientsurvey.service.QuestionService;
+import com.survey.clientsurvey.view.QuestionView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 @Service
 
-public class QuestionServiceImpl {
+public class QuestionServiceImpl implements QuestionService {
 
 
         @Autowired
@@ -41,5 +46,12 @@ public class QuestionServiceImpl {
         }
 
 
+    @Override
+    @Transactional
+    public QuestionView update(Integer question_id, QuestionForm form)  {
+        return questionRepository.findById(question_id).map((question) -> {
+            return new QuestionView(questionRepository.save(question.update(form)));
+        }).orElseThrow(NotFoundException::new);
     }
+}
 

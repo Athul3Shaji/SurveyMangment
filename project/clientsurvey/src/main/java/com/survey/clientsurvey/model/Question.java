@@ -1,11 +1,8 @@
 package com.survey.clientsurvey.model;
 
-import com.sun.istack.NotNull;
-import org.springframework.lang.NonNull;
+import com.survey.clientsurvey.form.QuestionForm;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "question_survey")
@@ -18,7 +15,7 @@ public class Question {
     String question;
     @Column
     String question_type;
-   @NotNull
+
    @Column
    int survey_id ;
 
@@ -30,6 +27,13 @@ public class Question {
         this.question = question;
         this.question_type = question_type;
         this.survey_id = survey_id;
+    }
+
+    public Question update(QuestionForm form){
+        this.question=form.getQuestion();
+        this.question_type=form.getQuestion_type();
+        this.survey_id= form.getSurvey_id();
+        return  this;
     }
 
     public int getQuestion_id() {

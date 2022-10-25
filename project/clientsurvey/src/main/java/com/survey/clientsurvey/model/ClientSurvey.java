@@ -1,5 +1,6 @@
 package com.survey.clientsurvey.model;
 
+import com.survey.clientsurvey.form.SurveyForm;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -31,13 +32,20 @@ public class  ClientSurvey {
     public ClientSurvey() {
     }
 
-    public ClientSurvey(int survey_id, String survey_name, String survey_description,Date date,String status) {
+    public ClientSurvey(int survey_id, Date date,String status) {
         this.survey_id = survey_id;
-        this.survey_name = survey_name;
-        this.survey_description = survey_description;
+
         this.date = date;
         this.status = status;
     }
+
+    public ClientSurvey(SurveyForm form) {
+
+        this.survey_name = form.getSurvey_name();
+        this.survey_description = form.getSurvey_description();
+
+    }
+
 
     public int getSurvey_id() {
         return survey_id;
