@@ -30,6 +30,7 @@ public class ClientSurveyServiceImpl implements ClientService {
         return  clientRepository.findByGet(survey_id);
 
     }
+    @Override
     public ResponseEntity<ClientSurvey> updateClient(Integer survey_id , ClientSurvey  clientSurvey){
        ClientSurvey survey = clientRepository.findById(survey_id).get();
 

@@ -1,6 +1,7 @@
 
 
-  
+  <header><app-header></app-header></header>
+
   
   <div class="row">
         <div class="card col-md-6 offset-md-3 offset-md-3">
@@ -14,9 +15,9 @@
                       
                         <div class="form-group">
                             <label> Question Type</label>
+                        <input type="text" class="form-control" formControlName="survey_id" *ngFor="let quest of updateQuestion"  [(ngModel)]="quest.survey_id" hidden>
                             
-                            
-                            <input  type="text" class="form-control" formControlName="questionType"   [(ngModel)]="updateQuestion.questionType"  readonly >
+                            <input  type="text" class="form-control" formControlName="question_type" *ngFor="let quest of updateQuestion"  [(ngModel)]="quest.question_type" name="type" readonly >
                             
 
                            
@@ -24,13 +25,13 @@
     
                         <div class="form-group">
                             <label>Question</label>
-                            <input type="text" class="form-control" formControlName="questionName"   [(ngModel)]="updateQuestion.questionName"
+                            <input type="text" class="form-control" formControlName="question" *ngFor="let quest of updateQuestion"  [(ngModel)]="quest.question"
                                  required >
                         </div>
     
                          <!-- <p *ngFor="let surveys of survey"> -->
                         
-                        <button type="submit" class="btn btn-success"  >Update</button>
+                        <button type="submit" class="btn btn-success" *ngFor="let quest of updateQuestion"  (click)="onEdito(quest.question_id)" >Update</button>
                     
                     </form>
                 </div>

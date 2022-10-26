@@ -14,7 +14,7 @@ export class EditQuestionComponent implements OnInit {
   // @Input() inputFromParent !: string;
 
   questionEdit !: FormGroup
-   updateQuestion  :any
+   updateQuestion !  : Question[]
   questionedit ! :Question
   countries = [
     { id: 1, name: "Single Type Question" },
@@ -29,29 +29,38 @@ export class EditQuestionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.questionEdit =this.fb.group({
+      question_type :[],
+      question :[],
+      survey_id :[]
+    });
     
    let id = this.route.snapshot.params['question_id']
     console.log("url_id",id)
    
     var n = parseInt(atob(id))
     console.log("decrypt!",n)
-    this.otionService.findQuestionById(n).subscribe(data=>{
+    this.otionService.findQuestionById(n).subscribe((data:any)=>{
       this.updateQuestion =data
-      console.log(this.updateQuestion)
 
     })
+    console.log(this.updateQuestion)
 
-    this.questionEdit =this.fb.group({
-      questionType :[],
-      questionName :[]
-    });
+
+    
    
   }
 
-  onEdito(){
-    var k =this.updateQuestion
-    console.log(k)
-  console.log(this.questionedit)
+  onEdito(id: number){
+    // var k =this.updateQuestion
+    console.log()
+    // var k =JSON.parse(sessionStorage.getItem('survey_id') || '{}')
+    this.questionEdit
+  console.log(this.questionEdit.value)
+   this.otionService.updateQuestion(id,this.questionEdit.value).subscribe((data:any)=>{
+    alert("updated")
+   })
+  
   }
 
 }

@@ -13,6 +13,8 @@ public interface ClientRepository extends JpaRepository <ClientSurvey, Integer> 
     @Query("FROM ClientSurvey WHERE survey_id= :survey_id")
     List<ClientSurvey> findByGet(int survey_id);
 
+    ClientSurvey save(ClientSurvey clientSurvey);
+
 //    Collection<ClientSurvey> findAll();
 }
 
