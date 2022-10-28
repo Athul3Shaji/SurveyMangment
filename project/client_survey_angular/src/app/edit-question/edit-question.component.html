@@ -15,9 +15,13 @@
                       
                         <div class="form-group">
                             <label> Question Type</label>
+                            <select  id="type" name="quest" formControlName="question_type" *ngFor="let quest of updateQuestion"  [(ngModel)]="quest.question_type">
+            
+                                <option *ngFor="let country of countries"  >{{country.name}}</option>
+                              </select>
                         <input type="text" class="form-control" formControlName="survey_id" *ngFor="let quest of updateQuestion"  [(ngModel)]="quest.survey_id" hidden>
                             
-                            <input  type="text" class="form-control" formControlName="question_type" *ngFor="let quest of updateQuestion"  [(ngModel)]="quest.question_type" name="type" readonly >
+                            <input  type="text" class="form-control" formControlName="question_type" *ngFor="let quest of updateQuestion"  [(ngModel)]="quest.question_type" id="type" name="quest" readonly >
                             
 
                            

@@ -26,7 +26,7 @@ export class OtionService {
     return this.http.get<Question[]>(this.questionUrl);
   }
   public save(question : Question){
-    
+    console.log("service",question)
     return this.http.post<Question>(this.questionUrl+'/addquestion',question);
   }
   public findAllOptions():Observable<Option[]>{

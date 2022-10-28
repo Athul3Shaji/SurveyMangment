@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class ClientSurveyView {
 
-    private final int survey_id;
+    private final int surveyId;
 
     private final String survey_name;
 
@@ -14,16 +14,20 @@ public class ClientSurveyView {
 
     private final Date date;
 
+    private final String status;
+
+
 
     public ClientSurveyView(ClientSurvey clientSurvey) {
-        this.survey_id = clientSurvey.getSurvey_id();
+        this.surveyId = clientSurvey.getSurveyId();
         this.survey_name = clientSurvey.getSurvey_name();
         this.survey_description = clientSurvey.getSurvey_description();
         this.date = clientSurvey.getDate();
+        this.status=clientSurvey.getStatus();
     }
 
     public int getSurvey_id() {
-        return survey_id;
+        return surveyId;
     }
 
     public String getSurvey_name() {
@@ -36,5 +40,8 @@ public class ClientSurveyView {
 
     public Date getDate() {
         return date;
+    }
+    public String getStatus() {
+        return status;
     }
 }

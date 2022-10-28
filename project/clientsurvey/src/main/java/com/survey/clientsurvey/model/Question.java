@@ -17,7 +17,7 @@ public class Question {
     String question_type;
 
    @Column
-   int survey_id ;
+   int survey_id;
 
     public  Question(){
 
@@ -29,10 +29,12 @@ public class Question {
         this.survey_id = survey_id;
     }
 
+
+
     public Question update(QuestionForm form){
         this.question=form.getQuestion();
         this.question_type=form.getQuestion_type();
-        this.survey_id= form.getSurvey_id();
+        this.survey_id = form.getSurvey_id();
         return  this;
     }
 

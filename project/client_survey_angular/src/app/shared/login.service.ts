@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class LoginService {
  loginUrl ! : string
   constructor(private http : HttpClient) { 
-    this.loginUrl ='http://localhost:8080/login'
+    this.loginUrl ='http://localhost:8082/login'
   }
 
   login(data:any){

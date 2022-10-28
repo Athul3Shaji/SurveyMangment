@@ -18,7 +18,7 @@ export class InterheadInterceptor implements HttpInterceptor {
       const accessToken = this.surveyService.getAccessToken();
       request = request.clone({
         setHeaders: {
-          Authorization: 'ClientSurvey:' + accessToken,
+          Authorization: 'survey ' + accessToken,
         },
       })
    

@@ -9,7 +9,6 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
 public class OptionController {
     @Autowired
     public OptionServiceImpl optionService;

@@ -12,7 +12,7 @@ public class  ClientSurvey {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int survey_id;
+    private int surveyId;
     @Column
     String survey_name;
     @Column
@@ -27,32 +27,40 @@ public class  ClientSurvey {
 
      String status="1";
 
-
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private User user;
 
     public ClientSurvey() {
     }
 
     public ClientSurvey(int survey_id, Date date,String status) {
-        this.survey_id = survey_id;
+        this.surveyId = survey_id;
 
         this.date = date;
         this.status = status;
     }
 
-    public ClientSurvey(SurveyForm form) {
-
+    public ClientSurvey(SurveyForm form,Integer userId) {
+        this.user= new User(userId);
         this.survey_name = form.getSurvey_name();
         this.survey_description = form.getSurvey_description();
 
     }
 
-
-    public int getSurvey_id() {
-        return survey_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setSurvey_id(int survey_id) {
-        this.survey_id = survey_id;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public int getSurveyId() {
+        return surveyId;
+    }
+
+    public void setSurveyId(int surveyId) {
+        this.surveyId = surveyId;
     }
 
     public String getSurvey_name() {

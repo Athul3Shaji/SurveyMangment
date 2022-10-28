@@ -4,14 +4,19 @@ import com.survey.clientsurvey.form.SurveyForm;
 import com.survey.clientsurvey.model.ClientSurvey;
 import com.survey.clientsurvey.view.ClientSurveyView;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+import java.util.List;
 
+@Service
 public interface ClientService {
 
- Collection<ClientSurvey> getAllClients();
+   List<ClientSurveyView> getAllSurveys();
 
  ClientSurveyView addClient(SurveyForm form);
 
+ List<ClientSurveyView> getSurvey(Integer survey_id);
+
     ResponseEntity<ClientSurvey> updateClient(Integer survey_id, ClientSurvey clientSurvey);
+
 }

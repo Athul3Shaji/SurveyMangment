@@ -33,7 +33,7 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
         public void addQuestion(Question question) {
-            questionRepository.save(question);
+           questionRepository.save(question);
         }
 
         public  void questionDelete(Integer question_id){

@@ -9,13 +9,13 @@ public class QuestionView {
     private final int survey_id;
 
     public QuestionView(Question question) {
-        this.question_id = getQuestion_id();
+        this.question_id = getQuestionId();
         this.question = question.getQuestion();
         this.question_type = question.getQuestion_type();
         this.survey_id = question.getSurvey_id();
     }
 
-    public int getQuestion_id() {
+    public int getQuestionId() {
         return question_id;
     }
 
@@ -27,7 +27,7 @@ public class QuestionView {
         return question_type;
     }
 
-    public int getSurvey_id() {
+    public int getSurveyId() {
         return survey_id;
     }
 }

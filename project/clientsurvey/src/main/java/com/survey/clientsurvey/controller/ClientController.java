@@ -13,7 +13,6 @@ import java.util.Collection;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
 public class ClientController {
     @Autowired
    private ClientSurveyServiceImpl clientSurveyService;
@@ -21,13 +20,15 @@ public class ClientController {
     private ClientService clientService;
 
     @RequestMapping(value = "/surveys")
-    public Collection<ClientSurvey> getAllClients(){
-        return clientService.getAllClients();
+    public Collection<ClientSurveyView> getAllSurveys(){
+        return clientSurveyService.getAllSurveys();
     }
 
+
+
     @RequestMapping(value= "/surveys/{survey_id}",method = RequestMethod.GET)
-    public List<ClientSurvey> getClient(@PathVariable Integer survey_id){
-        return clientSurveyService.getClient(survey_id);
+    public List<ClientSurveyView> getSurvey(@PathVariable Integer survey_id){
+        return clientService.getSurvey(survey_id);
 
     }
     @RequestMapping(value = "/addsurvey",method = RequestMethod.POST)

@@ -6,5 +6,9 @@ import com.survey.clientsurvey.view.QuestionView;
 
 public interface QuestionService  {
 
-QuestionView update(Integer question_id, QuestionForm form) throws NotFoundException;
+//    QuestionView addQuestion(QuestionForm form);
+
+//    void addQuestion(Question question);/
+
+    QuestionView update(Integer question_id, QuestionForm form) throws NotFoundException;
 }
