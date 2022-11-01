@@ -1,0 +1,41 @@
+<app-header></app-header>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button  class="btn btn-primary btn-md mb-3" >Send Mail</button>
+
+<div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <!-- <th scope="col">Id</th> -->
+          <th scope="col">Question</th>
+          <th scope="col">Type Of Question</th>
+          <th scope="col">Option</th>
+          <!-- <th scope="col">Action</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let surveys of question">
+          <!-- <td>{{ surveys.question_id }}</td> -->
+          <td>{{ surveys.question }}</td>
+          <td>{{ surveys.question_type }}</td>
+          <td>{{surveys.options}}</td>
+
+
+        
+          
+            <!-- <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal" (click)="add(surveys.question_id)">Add</button>
+              &nbsp;<button type="button" class="btn btn-success"  data-toggle="modal" data-target="#myModalView"  >View</button>
+            </td>
+            <td><button type="button" class="btn btn-info" (click)="onEdit(surveys.question_id)">Edit</button>
+
+
+            &nbsp;&nbsp;<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalViewdelete" (click)="delete(surveys.question_id)" >Delete</button></td> 
+            -->
+
+          </tr>
+      </tbody>
+    </table>
+
+  </div>

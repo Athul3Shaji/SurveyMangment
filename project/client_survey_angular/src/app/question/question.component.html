@@ -19,8 +19,8 @@
           <input type="text" id="qname" name="qname" [ngModelOptions]="{standalone: true}"     [(ngModel)]="question.question"   >
         </p>
       
-        <button type="submit"  
-        class="btn btn-info">Add </button>      
+        <!-- <button type="submit"  
+        class="btn btn-info">Add </button>       -->
       
          
             <!-- <th >Options:</th>
@@ -35,22 +35,28 @@
       
         
       <br/>
-     
-    
-  
-         
-          
-            
+      
                  
             
               <!-- <button type="submit"  class="btn btn-secondary" id="btn" >Add/button> -->
                    <!-- <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button> -->
                 
 
-            </form>
+            <!-- </form >
+            <form [formGroup]="optionForm" >
             <br>
             <br>
             <br>
+            <span aria-rowspan="10">
+              
+                <h2>Options</h2>
+               
+                <input type="text" formControlName="addOptions" placeholder="Add Options" name="option"  id="option">
+                <button  class="btn btn-primary" (click)="onOption()" >+</button>
+             
+                  
+            </span>  
+          </form>   -->
 
 
 
@@ -62,10 +68,26 @@
               class="btn btn-info" (click)="reload()">Add Option </button>  
             
             </form> -->
+            <br>
+            <br>
+            <br>
             
+          <!-- <form (ngSubmit)="onOptionTwo()"> -->
+            <th >Options:</th>
 
-
-
+            <div *ngFor="let value of values; let i = index"> 
+              <input type="text" [(ngModel)]="question.options" #name="ngModel" name="value{{i}}">
+              &nbsp;&nbsp; <button (click)="addvalue()" class="btn btn-primary">+</button> &nbsp;&nbsp; <button (click)="removevalue(i)" class="btn btn-danger">-</button>
+            </div>
+            
+            <button type="submit" class="btn btn-secondary">Add</button>
+            
+            <!-- <h2>Result</h2>
+            <div *ngFor="let value of values;">
+              {{ value.value}}
+            </div> -->
+          </form>
+            
 
 
  <div>           <app-question-view></app-question-view>

@@ -5,7 +5,7 @@ import com.survey.clientsurvey.form.QuestionForm;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "question_survey")
+@Table(name = "question")
 public class Question {
 
     @Id
@@ -19,14 +19,33 @@ public class Question {
    @Column
    int survey_id;
 
-    public  Question(){
+   String options [];
+
+    public String[] getOptions() {
+        return options;
+    }
+
+    public void setOptions(String[] options) {
+        this.options = options;
+    }
+
+    //    @ElementCollection(fetch = FetchType.LAZY)
+//    private Collection<String> option;
+  public Question(){}
+
+
+
+    public Question(int question_id) {
+        this.question_id = question_id;
 
     }
-    public Question(int question_id, String question, String question_type, int survey_id) {
-        this.question_id = question_id;
-        this.question = question;
-        this.question_type = question_type;
-        this.survey_id = survey_id;
+
+    public Question(QuestionForm form){
+        this.question= form.getQuestion();
+        this.question_type= form.getQuestion_type();
+        this.survey_id= form.getSurvey_id();
+//        this.option=form.getOption();
+        this.options= form.getOptions();
     }
 
 
@@ -69,4 +88,11 @@ public class Question {
     public void setSurvey_id(int survey_id) {
         this.survey_id = survey_id;
     }
+//    public Collection<String> getOption() {
+//        return option;
+//    }
+//
+//    public void setOption(Collection<String> option) {
+//        this.option = option;
+//    }
 }

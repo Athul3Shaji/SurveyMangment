@@ -17,6 +17,9 @@ import { HeaderComponent } from './header/header.component';
 import { LogoutComponent } from './logout/logout.component';
 import { InterheadInterceptor } from './interhead.interceptor';
 import { EditQuestionComponent } from './edit-question/edit-question.component';
+import { SendsurveyComponent } from './sendsurvey/sendsurvey.component';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -34,6 +37,8 @@ import { EditQuestionComponent } from './edit-question/edit-question.component';
     HeaderComponent,
     LogoutComponent,
     EditQuestionComponent,
+    SendsurveyComponent,
+    ForgetpasswordComponent,
   
    
   ],
@@ -43,6 +48,7 @@ import { EditQuestionComponent } from './edit-question/edit-question.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     
   
 

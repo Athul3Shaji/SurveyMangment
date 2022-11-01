@@ -9,6 +9,7 @@
             <th scope="col">Description</th>
             <th scope="col">Add Question</th>
             <th scope="col">Action</th>
+            <th scope="col">To User</th>
 
           </tr>
         </thead>
@@ -25,6 +26,9 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="deleteSurvey(surveys.survey_id)">
               Delete
             </button></td> 
+           <td><a routerLink="/sendsurvey/survey_id/{{surveys.survey_id}}" class="btn btn-info"  >Send</a></td>
+
+            <!-- <td><button>Send </button></td> -->
           </tr>
         </tbody>
       </table>

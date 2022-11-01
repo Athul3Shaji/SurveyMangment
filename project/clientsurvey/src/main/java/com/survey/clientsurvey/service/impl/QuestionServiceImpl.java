@@ -31,9 +31,10 @@ public class QuestionServiceImpl implements QuestionService {
         return questionRepository.findBySurvey(survey_id);
 
     }
+    @Override
+    public QuestionView addQuestion(QuestionForm form) {
+            return  new QuestionView(questionRepository.save(new Question(form)))   ;
 
-        public void addQuestion(Question question) {
-           questionRepository.save(question);
         }
 
         public  void questionDelete(Integer question_id){

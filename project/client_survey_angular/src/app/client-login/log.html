@@ -1,9 +1,5 @@
-<div class="imag">
-<div class="center" ><h2>Client Login</h2>  
-  
-<form  (ngSubmit)="onSubmit()">  
-  
-  <section class=" text-center text-lg-start">
+<!-- Section: Design Block -->
+<section class=" text-center text-lg-start">
     <style>
       .rounded-t-5 {
         border-top-left-radius: 0.5rem;
@@ -23,7 +19,7 @@
     <div class="card mb-3">
       <div class="row g-0 d-flex align-items-center">
         <div class="col-lg-4 d-none d-lg-flex">
-          <img src="https://img.freepik.com/premium-vector/online-survey-internet-surveying-hands-holding-tablet-with-test-form-mobile-questionnaire-customers-voting_176411-29.jpg?w=2000" alt="Trendy Pants and Shoes"
+          <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
             class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
         </div>
         <div class="col-lg-8">
@@ -31,13 +27,13 @@
   
             <form>
               <!-- Email input -->
-              <div [formGroup]="loginForm">
+              <div class="form-outline mb-4">
                 <input formControlName="email" class="form-control" type="text"> 
                 <label >Email address</label>
               </div>
   
               <!-- Password input -->
-              <div [formGroup]="loginForm">
+              <div class="form-outline mb-4">
                 &nbsp;&nbsp;<input formControlName="password" class="form-control" type="password" >   
                 <label>Password</label>
               </div>
@@ -54,12 +50,12 @@
   
                 <div class="col">
                   <!-- Simple link -->
-                  <a routerLink="/forgetpassword">Forgot password?</a>
+                  <a href="#!">Forgot password?</a>
                 </div>
               </div>
   
               <!-- Submit button -->
-              <button type="submit" class="btn btn-primary btn-block mb-4" (click)="onSubmit()">Sign in</button>
+              <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
   
             </form>
   
@@ -67,6 +63,27 @@
         </div>
       </div>
     </div>
-  </section> 
+  </section>
+
+
+  <div class="row"> 
+    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+    <div class=" col-md-offset-1 col-md-14">  
+        <label for="email" class="label"> Email </label>  
+        <input formControlName="email" class="form-control" type="text">   
+    <!-- </div>   -->
+  <!-- </div>   -->
   
-</form>  </div></div>
+  <!-- <div class="row">   -->
+     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+    <!-- <div class=" col-md-offset-1 col-md-14">   -->
+        <label for="password" class="label"> Password </label>  
+       &nbsp;&nbsp;<input formControlName="password" class="form-control" type="password" >   
+    </div>  
+  </div>  
+  
+  <div class="row" style="margin-top: 40px;">  
+    <div class="col-md-offset-1 col-md-2">  
+        <button class="btn btn-md btn-primary btn-style"  >Login</button>  
+    </div>  
+  </div> 

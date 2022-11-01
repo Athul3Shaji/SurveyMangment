@@ -6,7 +6,7 @@ import com.survey.clientsurvey.view.QuestionView;
 
 public interface QuestionService  {
 
-//    QuestionView addQuestion(QuestionForm form);
+   QuestionView addQuestion(QuestionForm form);
 
 //    void addQuestion(Question question);/
 

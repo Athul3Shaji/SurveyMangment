@@ -6,6 +6,7 @@ export class Question {
     question_type ! : string;
     question ! : number;
     survey_id ! :number;
+    options = ["athul"];
     
 
 }

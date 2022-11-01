@@ -17,6 +17,26 @@ public class QuestionForm {
     @NotNull
     private int survey_id;
 
+    private String options [];
+
+    public String[] getOptions() {
+        return options;
+    }
+
+    public void setOptions(String[] options) {
+        this.options = options;
+    }
+//    @NotNull
+//    private Collection<String> option;
+//
+//    public Collection<String> getOption() {
+//        return option;
+//    }
+
+//    public void setOption(Collection<String> option) {
+//        this.option = option;
+//    }
+
     public String getQuestion() {
         return question;
     }

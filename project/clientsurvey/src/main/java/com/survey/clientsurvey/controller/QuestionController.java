@@ -28,8 +28,8 @@ public class QuestionController {
     }
 
     @RequestMapping(value = "/questions/addquestion",method = RequestMethod.POST)
-    public void addQuestion( @RequestBody Question question){
-        questionService.addQuestion(question);
+    public QuestionView addQuestion(  @Valid @RequestBody QuestionForm form){
+        return quest.addQuestion(form);
     }
 
 
