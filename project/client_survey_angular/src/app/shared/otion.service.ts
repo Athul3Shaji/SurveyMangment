@@ -10,6 +10,7 @@ import { Question } from '../question';
 })
 export class OtionService {
   optionUrl  !: string;
+  optionUrlOne!:string;
   questionUrl !: string
   questionEditUrl ! :string
   
@@ -18,6 +19,8 @@ export class OtionService {
   
   constructor(private http :HttpClient) { 
     this.optionUrl = 'http://localhost:8082/options';
+    this.optionUrlOne = 'http://localhost:8082/addOption';
+
     this.questionUrl = 'http://localhost:8082/questions';
     this.questionEditUrl='http://localhost:8082/editquestion'
     this.updateQuestionUl='http://localhost:8082/update_question'
@@ -38,7 +41,8 @@ export class OtionService {
 
 
    public optionsave(option : Option){
-    return this.http.post<Option>(this.optionUrl,option);
+    console.log(option)
+     return this.http.post<Option>(this.optionUrlOne,option);
    }
 
 

@@ -56,7 +56,7 @@ export class QuestionViewComponent implements OnInit {
   }
   addOption(){
     // console.log(id)
-    this.option.question_id=JSON.parse(sessionStorage.getItem('question_id') || '{}');
+     this.option.question_id=JSON.parse(sessionStorage.getItem('question_id') || '{}');
     console.log(this.option)
 
     // console.log(this.oprequest.option=this.option)

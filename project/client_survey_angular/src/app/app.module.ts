@@ -20,6 +20,7 @@ import { EditQuestionComponent } from './edit-question/edit-question.component';
 import { SendsurveyComponent } from './sendsurvey/sendsurvey.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmailtouserComponent } from './emailtouser/emailtouser.component';
 
 
 
@@ -39,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditQuestionComponent,
     SendsurveyComponent,
     ForgetpasswordComponent,
+    EmailtouserComponent,
   
    
   ],
@@ -49,6 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+  
     
   
 

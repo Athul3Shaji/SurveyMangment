@@ -1,0 +1,28 @@
+
+
+<body>
+<div class="table-title">
+<h3>Users</h3>
+</div>
+<table class="table-fill">
+<thead>
+<tr>
+<th class="text-left">User</th>
+<th class="text-left">Email address</th>
+<th class="text-left">Action</th>
+
+
+</tr>
+</thead>
+<tbody class="table-hover">
+<tr *ngFor="let user of users">
+<td class="text-left">{{user.name}}</td>
+<td class="text-left">{{user.email}}</td>
+
+<td><a href="mailto:{{user.email}}"><button >Email</button></a></td></tr>
+
+</tbody>
+</table>
+  
+
+  </body>

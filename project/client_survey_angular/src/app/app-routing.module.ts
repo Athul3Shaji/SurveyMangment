@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientLoginComponent } from './client-login/client-login.component';
 import { EditQuestionComponent } from './edit-question/edit-question.component';
 import { EditsurveyComponent } from './editsurvey/editsurvey.component';
+import { EmailtouserComponent } from './emailtouser/emailtouser.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:'questionview',component:QuestionViewComponent,canActivate:[AuthguardService]},
   {path:'questions/editquestion/:question_id',component:EditQuestionComponent,canActivate:[AuthguardService]},
   {path:'sendsurvey/survey_id/:survey_id',component:SendsurveyComponent,canActivate:[AuthguardService]},
+  {path:'sendemail',component:EmailtouserComponent,canActivate:[AuthguardService]},
 
 
 

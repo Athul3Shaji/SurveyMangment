@@ -10,4 +10,6 @@ public interface OptionRepository  extends JpaRepository <Option, Integer> {
 
     @Query("FROM Option WHERE question_id =:question_id")
     List<Option> findByQuest(int question_id);
+
+    Option save(Option option);
 }

@@ -3,7 +3,7 @@
 <h1>Question </h1>
 
 
-<form (ngSubmit)="onSubmitone()" >
+<form [formGroup]="optionForm" (ngSubmit)="onSubmitone()">
               
               
     Question Type 
@@ -76,7 +76,7 @@
             <th >Options:</th>
 
             <div *ngFor="let value of values; let i = index"> 
-              <input type="text" [(ngModel)]="question.options" #name="ngModel" name="value{{i}}">
+              <input type="text" formControlName="addOptions"  name="value{{i}}">
               &nbsp;&nbsp; <button (click)="addvalue()" class="btn btn-primary">+</button> &nbsp;&nbsp; <button (click)="removevalue(i)" class="btn btn-danger">-</button>
             </div>
             

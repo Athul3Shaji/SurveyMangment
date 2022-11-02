@@ -69,7 +69,7 @@ export class QuestionComponent implements OnInit {
       })
       
 
-
+    console.log(this.optionForm.value)
 
   }
   
@@ -91,8 +91,10 @@ export class QuestionComponent implements OnInit {
       // this.question.options=this.values   
 
     console.log("questions",this.question)
+    console.log(this.optionForm.value)
+
     // console.log(this.oprequest.option = this.option)
-  this.otionService.save(this.question).subscribe(result => this.reload());
+  // this.otionService.save(this.question).subscribe(result => this.reload());
 
   // console.log("options",this.values)
 
@@ -127,7 +129,7 @@ export class QuestionComponent implements OnInit {
 
   addvalue(){
   
-     this.values.push( "");
+      this.values.push(" ");
    
   }
 

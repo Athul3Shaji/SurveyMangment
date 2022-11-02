@@ -1,10 +1,14 @@
 package com.survey.clientsurvey.controller;
 
+import com.survey.clientsurvey.form.OptionForm;
 import com.survey.clientsurvey.model.Option;
+import com.survey.clientsurvey.service.OptionService;
 import com.survey.clientsurvey.service.impl.OptionServiceImpl;
+import com.survey.clientsurvey.view.OptionView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -12,6 +16,9 @@ import java.util.List;
 public class OptionController {
     @Autowired
     public OptionServiceImpl optionService;
+
+    @Autowired
+    public OptionService optservice;
 
 
     @RequestMapping(value = "/options")
@@ -29,11 +36,11 @@ public class OptionController {
 
     }
 
-    @RequestMapping(value = "/options",method = RequestMethod.POST)
-    public void addOption(@RequestBody Option option){
-//        questionService.addQuestion(req.question);
+    @RequestMapping(value = "/addOption",method = RequestMethod.POST)
+    public OptionView addOption(@Valid @RequestBody OptionForm form){
+//        questionService.addQuestion(form);
 
-        optionService.addOption(option);
+          return  optservice.addOption(form);
     }
 
     @RequestMapping(value = "/options/{option_id}", method = RequestMethod.PUT)
