@@ -21,6 +21,8 @@ import { SendsurveyComponent } from './sendsurvey/sendsurvey.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmailtouserComponent } from './emailtouser/emailtouser.component';
+import { SearchsurveyComponent } from './searchsurvey/searchsurvey.component';
+import {NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -41,6 +43,8 @@ import { EmailtouserComponent } from './emailtouser/emailtouser.component';
     SendsurveyComponent,
     ForgetpasswordComponent,
     EmailtouserComponent,
+    SearchsurveyComponent,
+    
   
    
   ],
@@ -51,6 +55,7 @@ import { EmailtouserComponent } from './emailtouser/emailtouser.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgxPaginationModule
   
     
   

@@ -39,5 +39,9 @@ export class SurveyServiceService {
   public update(id :number,survey : Survey){
     return this.http.patch(this.clientUrl+'/editsurvey/'+id,survey);
   }
+
+  public search(search:string){
+    return this.http.get(this.clientUrl+'/search/'+search)
+  }
  
 }

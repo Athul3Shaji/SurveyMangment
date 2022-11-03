@@ -94,7 +94,7 @@ export class QuestionComponent implements OnInit {
     console.log(this.optionForm.value)
 
     // console.log(this.oprequest.option = this.option)
-  // this.otionService.save(this.question).subscribe(result => this.reload());
+   this.otionService.save(this.question).subscribe(result => this.reload());
 
   // console.log("options",this.values)
 

@@ -1,35 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Survey } from '../survey';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SurveyServiceService } from '../survey-service.service';
-import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
-  selector: 'app-survey-list',
-  templateUrl: './survey-list.component.html',
-  styleUrls: ['./survey-list.component.css']
+  selector: 'app-searchsurvey',
+  templateUrl: './searchsurvey.component.html',
+  styleUrls: ['./searchsurvey.component.css']
 })
-export class SurveyListComponent implements OnInit {
-   
-  survey !: Survey[];
-  eid ! : number
-  search !:string;
-  page: number = 1;
-  count: number = 0;
-  tableSize: number =5 ;
-  tableSizes: any = [3, 6, 9, 12];
+export class SearchsurveyComponent implements OnInit {
+   survey! :any;
 
-
-
-  constructor(private surveyservice : SurveyServiceService,private router  :Router, ) { }
+  constructor(private router : ActivatedRoute,private surveyservice:SurveyServiceService,private route:Router) { }
 
   ngOnInit(): void {
 
-    this.surveyservice.findAll().subscribe(data=>{
-      this.survey = data;
-
+    let id = this.router.snapshot.params['search']
+    console.log(id)
+    this.surveyservice.search(id).subscribe(res=>{
+      console.log(res)
+      this.survey=res
     })
   }
-
   deleteSurvey(id : number) {
     sessionStorage.setItem("delete_id",JSON.stringify(id));
 
@@ -62,7 +53,7 @@ export class SurveyListComponent implements OnInit {
     console.log("number",id)
     var k = btoa("addquestion"+id);
     sessionStorage.setItem("survey_id",JSON.stringify(id));
-    this.router.navigate(['addquestion/survey_id',k]);
+    this.route.navigate(['addquestion/survey_id',k]);
 
   }
 
@@ -76,21 +67,7 @@ export class SurveyListComponent implements OnInit {
   //   this.survey=data
   //  })
   //  console.log(k)
-   this.router.navigate(['surveylists/editsurvey',k])
-  }
-
-  onSearch(name:string){
-  console.log(name)
-   this.router.navigate(["/search/survey",name])
-  }
-  onTableDataChange(event: any) {
-    this.page = event;
-    this.survey;
-  }
-  onTableSizeChange(event: any): void {
-    this.tableSize = event.target.value;
-    this.page = 1;
-    this.survey;
+   this.route.navigate(['surveylists/editsurvey',k])
   }
 
 }

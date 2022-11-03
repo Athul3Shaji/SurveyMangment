@@ -6,18 +6,18 @@ public class SurveyForm {
 
     @NotBlank
     @Size(max=255)
-    private String survey_name;
+    private String surveyName;
 
     @NotBlank
     @Size(max = 255)
     private String survey_description;
 
-    public String getSurvey_name() {
-        return survey_name;
+    public String getSurveyName() {
+        return surveyName;
     }
 
-    public void setSurvey_name(String survey_name) {
-        this.survey_name = survey_name;
+    public void setSurveyName(String surveyName) {
+        this.surveyName = surveyName;
     }
 
     public String getSurvey_description() {

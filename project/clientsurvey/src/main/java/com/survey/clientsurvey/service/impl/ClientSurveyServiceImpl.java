@@ -27,6 +27,13 @@ public class ClientSurveyServiceImpl implements ClientService {
                 new ClientSurveyView(surya)).collect(Collectors.toList());
 
     }
+    @Override
+    public List<ClientSurveyView> getSearchSurveys(String search){
+
+        return clientRepository.findBySurveyNameContaining(search).stream().map((sury)->
+                new ClientSurveyView(sury)).collect(Collectors.toList());
+
+    }
 
  @Override
     public ClientSurveyView addClient(SurveyForm form){
@@ -44,11 +51,13 @@ public class ClientSurveyServiceImpl implements ClientService {
 
 
 
+
+
     @Override
     public ResponseEntity<ClientSurvey> updateClient(Integer survey_id , ClientSurvey  clientSurvey){
        ClientSurvey survey = clientRepository.findById(survey_id).get();
 
-        survey.setSurvey_name(clientSurvey.getSurvey_name());
+        survey.setSurveyName(clientSurvey.getSurveyName());
         survey.setSurvey_description(clientSurvey.getSurvey_description());
 
         ClientSurvey update =  clientRepository.save(survey);

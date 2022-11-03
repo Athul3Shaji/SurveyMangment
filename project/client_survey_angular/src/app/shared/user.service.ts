@@ -10,6 +10,7 @@ export class UserService {
 
   constructor( private http :HttpClient) { 
     this.userUrl="http://localhost:8082/users";
+
   }
   public allUsers(){
     return this.http.get(this.userUrl)

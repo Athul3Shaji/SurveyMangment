@@ -42,9 +42,16 @@ public class ClientController {
        clientSurveyService.updateClient(survey_id,clientSurvey);
     }
 
+
     @RequestMapping(value = "/surveys/{survey_id}", method = RequestMethod.DELETE)
     public void deleteClient(@PathVariable Integer survey_id) {
         clientSurveyService.deleteClient(survey_id);
+
+    }
+
+    @RequestMapping(value= "/surveys/search/{search}",method = RequestMethod.GET)
+    public List<ClientSurveyView> getSearchSurveys(@PathVariable String search){
+        return clientService.getSearchSurveys(search);
 
     }
 }

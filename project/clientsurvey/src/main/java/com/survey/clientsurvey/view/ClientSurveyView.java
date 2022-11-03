@@ -8,7 +8,7 @@ public class ClientSurveyView {
 
     private final int surveyId;
 
-    private final String survey_name;
+    private final String surveyName;
 
     private final String survey_description;
 
@@ -20,7 +20,7 @@ public class ClientSurveyView {
 
     public ClientSurveyView(ClientSurvey clientSurvey) {
         this.surveyId = clientSurvey.getSurveyId();
-        this.survey_name = clientSurvey.getSurvey_name();
+        this.surveyName = clientSurvey.getSurveyName();
         this.survey_description = clientSurvey.getSurvey_description();
         this.date = clientSurvey.getDate();
         this.status=clientSurvey.getStatus();
@@ -30,8 +30,8 @@ public class ClientSurveyView {
         return surveyId;
     }
 
-    public String getSurvey_name() {
-        return survey_name;
+    public String getSurveyName() {
+        return surveyName;
     }
 
     public String getSurvey_description() {

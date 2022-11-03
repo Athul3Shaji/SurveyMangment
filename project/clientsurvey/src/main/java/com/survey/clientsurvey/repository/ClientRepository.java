@@ -22,6 +22,9 @@ public interface ClientRepository extends JpaRepository <ClientSurvey, Integer> 
 
     Collection<ClientSurvey>findByUserUserIdAndSurveyId(Integer userId,Integer survey_id);
 
+    List<ClientSurvey>findBySurveyNameContaining(String search);
+    
+
 
 }
 

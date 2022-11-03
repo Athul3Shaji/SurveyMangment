@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Question } from '../question';
 import { OtionService } from '../shared/otion.service';
 
@@ -12,7 +12,9 @@ export class SendsurveyComponent implements OnInit {
 
   question! : Question[];
 
-  constructor(private route: ActivatedRoute,private otionservice : OtionService) { }
+  constructor(private route: ActivatedRoute,private otionservice : OtionService,private router:Router) {
+    console.log(this.router.url)
+   }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['survey_id']

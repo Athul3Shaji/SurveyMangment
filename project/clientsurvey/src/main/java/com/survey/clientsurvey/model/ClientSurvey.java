@@ -14,7 +14,7 @@ public class  ClientSurvey {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int surveyId;
     @Column
-    String survey_name;
+    String surveyName;
     @Column
     String survey_description;
 
@@ -42,7 +42,7 @@ public class  ClientSurvey {
 
     public ClientSurvey(SurveyForm form,Integer userId) {
         this.user= new User(userId);
-        this.survey_name = form.getSurvey_name();
+        this.surveyName = form.getSurveyName();
         this.survey_description = form.getSurvey_description();
 
     }
@@ -63,12 +63,12 @@ public class  ClientSurvey {
         this.surveyId = surveyId;
     }
 
-    public String getSurvey_name() {
-        return survey_name;
+    public String getSurveyName() {
+        return surveyName;
     }
 
-    public void setSurvey_name(String survey_name) {
-        this.survey_name = survey_name;
+    public void setSurveyName(String surveyName) {
+        this.surveyName = surveyName;
     }
 
     public String getSurvey_description() {

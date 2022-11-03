@@ -1,19 +1,11 @@
 <header><app-header></app-header></header>
 <br>
 <br>
-
-
-<div  >
-&nbsp;&nbsp;Search Surveys:
-  <input type="text" placeholder="Survey Name.." [(ngModel)]="search">
-  
-  <button  class="bttn btn-info" (click)="onSearch(search)" >Search</button>
-</div>
+<h1>Searched Surveys</h1>
 <div class="card my-5">
     <div class="card-body">
-     
       <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
+        <thead class="thead-silver">
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
@@ -23,15 +15,9 @@
             <th scope="col">To User</th>
 
           </tr>
-          
         </thead>
         <tbody>
-          <tr *ngFor="let surveys of survey|paginate
-          : {
-              itemsPerPage: tableSize,
-              currentPage: page,
-              totalItems: count
-            }; ">
+          <tr *ngFor="let surveys of survey">
             <td>{{ surveys.survey_id }}</td>
             <td>{{ surveys.surveyName }}</td>
             <td>{{ surveys.survey_description }}</td>
@@ -49,14 +35,6 @@
           </tr>
         </tbody>
       </table>
-      <div class="d-flex justify-content-center">
-        <pagination-controls
-          previousLabel="Prev"
-          nextLabel="Next"
-          (pageChange)="onTableDataChange($event)"
-        >
-        </pagination-controls>
-      </div>
     </div>
   </div>
 

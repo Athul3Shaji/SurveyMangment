@@ -17,6 +17,8 @@ public interface ClientService {
 
  List<ClientSurveyView> getSurvey(Integer survey_id);
 
+ List<ClientSurveyView>getSearchSurveys(String search);
+
     ResponseEntity<ClientSurvey> updateClient(Integer survey_id, ClientSurvey clientSurvey);
 
 }
