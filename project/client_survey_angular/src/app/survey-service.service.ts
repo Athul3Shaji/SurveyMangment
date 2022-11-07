@@ -10,11 +10,14 @@ import { Option } from './option';
 export class SurveyServiceService {
   private clientUrl ! : string;
   private clientUrladd! : string;
+  private csvUrl! :string;
   header = new HttpHeaders()
 
   constructor(private http : HttpClient) {
     this.clientUrl = 'http://localhost:8082/surveys';
     this.clientUrladd='http://localhost:8082/addsurvey';
+    
+
     
    }
    getAccessToken() {
@@ -42,6 +45,10 @@ export class SurveyServiceService {
 
   public search(search:string){
     return this.http.get(this.clientUrl+'/search/'+search)
+  }
+
+  public download(){
+    return this.http.get(this.clientUrl+'/export',{responseType:'blob'})
   }
  
 }

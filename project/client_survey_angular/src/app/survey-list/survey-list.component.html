@@ -3,12 +3,13 @@
 <br>
 
 
-<div  >
+<div  align="right">
 &nbsp;&nbsp;Search Surveys:
   <input type="text" placeholder="Survey Name.." [(ngModel)]="search">
   
   <button  class="bttn btn-info" (click)="onSearch(search)" >Search</button>
 </div>
+
 <div class="card my-5">
     <div class="card-body">
      
@@ -49,16 +50,17 @@
           </tr>
         </tbody>
       </table>
-      <div class="d-flex justify-content-center">
+      <div  class="d-flex justify-content-center" >
         <pagination-controls
           previousLabel="Prev"
           nextLabel="Next"
-          (pageChange)="onTableDataChange($event)"
-        >
+          (pageChange)="onTableDataChange($event)" >
         </pagination-controls>
       </div>
     </div>
   </div>
+  <div align="center">Download The Surveys:<button (click)="onDownload()" class="btn btn-info">Click</button></div>
+
 
   
 <!-- Button trigger modal -->
@@ -86,3 +88,7 @@
     </div>
   </div>
 </div>
+
+<!-- <a class="btn btn-clear" title="Download JSON" [href]="downloadJsonHref" download="download.json">download</a> -->
+
+

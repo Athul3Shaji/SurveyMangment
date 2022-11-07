@@ -66,4 +66,9 @@ public class ClientSurveyServiceImpl implements ClientService {
     public void deleteClient(Integer survey_id){
         clientRepository.deleteById(survey_id);
     }
+
+
+    public List<ClientSurvey> listAll(){
+     return clientRepository.findAll();
+    }
 }

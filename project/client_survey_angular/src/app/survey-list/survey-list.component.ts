@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Survey } from '../survey';
 import { SurveyServiceService } from '../survey-service.service';
 import { ActivatedRoute,Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
+import { AngularCsv } from 'angular-csv-ext/dist/Angular-csv';
+import{saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-survey-list',
@@ -17,17 +20,26 @@ export class SurveyListComponent implements OnInit {
   count: number = 0;
   tableSize: number =5 ;
   tableSizes: any = [3, 6, 9, 12];
+  fileUrl: any;
+  downloadJsonHref: any;
+  downloadSurveys! :any;
+  fileName : string="survey"
 
 
 
-  constructor(private surveyservice : SurveyServiceService,private router  :Router, ) { }
+  constructor(private surveyservice : SurveyServiceService,private router  :Router, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
 
     this.surveyservice.findAll().subscribe(data=>{
       this.survey = data;
-
+      // console.log(this.survey)
+      
     })
+    
+   
+   
+
   }
 
   deleteSurvey(id : number) {
@@ -92,5 +104,19 @@ export class SurveyListComponent implements OnInit {
     this.page = 1;
     this.survey;
   }
+
+
+ onDownload(){
+  this.surveyservice.download().subscribe(blob=>
+    saveAs(blob))
+ 
+
+
+ }
+
+
+
+
+
 
 }

@@ -21,21 +21,20 @@ export class QuestionComponent implements OnInit {
   oprequest  :Oprequest
  option! :Option
  question ! :Question
- optionForm!:FormGroup ;
+ questionForm!:FormGroup ;
  questions ! : Question[]
- options ! : Option[]
+//  options ! : Option[]
  opt! : []
- public values:  any[]=[{
 
- }]
- 
   
 
 //  addoptions ! : FormArray;
 
  
  countries = [
+   { id: 0, name: " Select" },
    { id: 1, name: "Single Type Question" },
+
    { id: 2, name: "Multi type " },
    { id: 3, name: "Free Type" },
   
@@ -53,25 +52,42 @@ export class QuestionComponent implements OnInit {
       this.question=new Question; 
       this.survey = new Survey;
 
+      this.questionForm = this.fb.group({
+         
+        question_type : '',
+        question :'',
+        options : this.fb.array([]) 
+
+
+      })
  
       
     }
-  
+
+    get options():FormArray{
+      return this.questionForm.get("options") as FormArray
+    }
+    newOptions(): FormGroup {
+      return this.fb.group({
+        options: '',
+       
+      })
+    }
+
+    addOptions() {
+      this.options.push(this.newOptions());
+    }
+
+
+    removeOption(i:number) {
+      this.options.removeAt(i);
+    }
 
   ngOnInit(): void {
     this.otionService.findAll().subscribe(data=>{
       this.questions = data;})
 
-   
-
-      this.optionForm= this.fb.group({
-        addOptions : [""]
-      })
-      
-
-    console.log(this.optionForm.value)
-
-  }
+   }
   
   addOption(id : number){
     console.log(id)
@@ -87,55 +103,22 @@ export class QuestionComponent implements OnInit {
   }
   onSubmitone() {
     
-     this.question.survey_id=JSON.parse(sessionStorage.getItem('survey_id') || '{}' );
-      // this.question.options=this.values   
+  //    this.question.survey_id=JSON.parse(sessionStorage.getItem('survey_id') || '{}' );
+      
+  this.otionService.save(this.questionForm.value).subscribe(result => this.reload());
 
-    console.log("questions",this.question)
-    console.log(this.optionForm.value)
-
-    // console.log(this.oprequest.option = this.option)
-   this.otionService.save(this.question).subscribe(result => this.reload());
-
-  // console.log("options",this.values)
-
-    // //.survey= JSON.parse(sessionStorage.getItem('Surveys') || '{}' )
-    // console.log("hello",this.survey)
-    // this.surveyService.save(this.survey).subscribe(result => this.reload());
-
-    // var data = this.otionService.optionsave(this.oprequest).subscribe(result => this.reload());
-    // console.log(data);
-
+  console.log(this.questionForm.value)
    
    
 
    }
 
-   onOption(){
-    this.opt =this.optionForm.value
-    // console.log("option",this.values  )
-    console.log("array",this.opt)
-   }
-
-  //  createOption():FormGroup {
-  //   return this.fb.group({
-  //    addoptions  :''
-  //   })
-
-
-
-  removevalue(i: number){
-    this.values.splice(i,1);
-  }
-
-  addvalue(){
-  
-      this.values.push(" ");
    
-  }
 
-  onOptionTwo(){
-   
-  }
+
+
+
+
 }
  
 

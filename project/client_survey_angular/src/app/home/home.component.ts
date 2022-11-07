@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,11 +9,16 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
    title ! :string;
-  constructor(private router :Router) {
+  fileUrl: any;
+  constructor(private router :Router,private sanitizer: DomSanitizer) {
     this.title ="Client Managment"
    }
 
   ngOnInit(): void {
+    const data = 'some text';
+    const blob = new Blob([data], { type: 'application/octet-stream' });
+
+    this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
   }
  
 }

@@ -38,8 +38,8 @@ export class EditQuestionComponent implements OnInit {
    let id = this.route.snapshot.params['question_id']
     console.log("url_id",id)
    
-    var n = parseInt(atob(id))
-    console.log("decrypt!",n)
+      var n = parseInt(atob(id))
+      console.log("decrypt!",n)
     this.otionService.findQuestionById(n).subscribe((data:any)=>{
       this.updateQuestion =data
 

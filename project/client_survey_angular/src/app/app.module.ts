@@ -23,6 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmailtouserComponent } from './emailtouser/emailtouser.component';
 import { SearchsurveyComponent } from './searchsurvey/searchsurvey.component';
 import {NgxPaginationModule } from 'ngx-pagination';
+import { ChartComponent } from './chart/chart.component';
+
+
 
 
 
@@ -44,6 +47,7 @@ import {NgxPaginationModule } from 'ngx-pagination';
     ForgetpasswordComponent,
     EmailtouserComponent,
     SearchsurveyComponent,
+    ChartComponent,
     
   
    
@@ -55,7 +59,8 @@ import {NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    
   
     
   
