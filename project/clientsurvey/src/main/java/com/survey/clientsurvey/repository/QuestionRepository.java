@@ -4,7 +4,9 @@ import com.survey.clientsurvey.model.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 public interface QuestionRepository extends JpaRepository <Question, Integer> {
 
@@ -13,8 +15,8 @@ public interface QuestionRepository extends JpaRepository <Question, Integer> {
 //   List<Question> findBySurvey(String question);
 
 //    Question findQuestion(int  survey_id);
-   @Query("FROM Question WHERE survey_id =:survey_id")
-   List<Question> findBySurvey(int survey_id);
+//   @Query("FROM Question WHERE survey_id =:survey_id")
+//   List<Question> findAllBySurveyIdAndStatus(Integer survey_id,byte status);
 
    @Query("From Question WHERE question_id= :question_id")
    List<Question> findByQuestion(int question_id);
@@ -22,4 +24,7 @@ public interface QuestionRepository extends JpaRepository <Question, Integer> {
    Question save(Question question);
 
 
+   Collection<Question> findAllBySurveyIdAndStatus(Integer survey_id, byte status);
+
+   Optional<Question> findByQuestionIdAndStatus(Integer question_id, byte status);
 }

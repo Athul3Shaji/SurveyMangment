@@ -1,4 +1,4 @@
-<div class="card my-5">
+  <div class="card my-5">
     <div class="card-body">
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
@@ -12,7 +12,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let surveys of question">
-            <td>{{ surveys.question_id }}</td>
+            <td>{{ surveys.questionId }}</td>
             <td>{{ surveys.question }}</td>
             <td>{{ surveys.question_type }}</td>
             <!-- <td>{{surveys.options}}</td> -->
@@ -20,13 +20,13 @@
 
           
             
-              <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal" (click)="add(surveys.question_id)">Add</button>
+              <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal" (click)="add(surveys.questionId)">Add</button>
                 &nbsp;<button type="button" class="btn btn-success"  data-toggle="modal" data-target="#myModalView"  >View</button>
               </td>
-              <td><button type="button" class="btn btn-info" (click)="onEdit(surveys.question_id)">Edit</button>
+              <td><button type="button" class="btn btn-info" (click)="onEdit(surveys.questionId)">Edit</button>
 
 
-              &nbsp;&nbsp;<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalViewdelete" (click)="delete(surveys.question_id)" >Delete</button></td> 
+              &nbsp;&nbsp;<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalViewdelete" (click)="delete(surveys.questionId)" >Delete</button></td> 
              
 
             </tr>

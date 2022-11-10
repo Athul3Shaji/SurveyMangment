@@ -8,10 +8,10 @@ import com.survey.clientsurvey.security.util.SecurityUtil;
 import com.survey.clientsurvey.service.ClientService;
 import com.survey.clientsurvey.view.ClientSurveyView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +23,7 @@ public class ClientSurveyServiceImpl implements ClientService {
     @Override
     public List<ClientSurveyView> getAllSurveys(){
 
-        return clientRepository.findAllByUserUserId(SecurityUtil.getCurrentUserId()).stream().map((surya)->
+        return clientRepository.findAllByUserUserIdAndStatus(SecurityUtil.getCurrentUserId(),ClientSurvey.Status.ACTIVE.value).stream().map((surya)->
                 new ClientSurveyView(surya)).collect(Collectors.toList());
 
     }
@@ -54,17 +54,18 @@ public class ClientSurveyServiceImpl implements ClientService {
 
 
     @Override
-    public ResponseEntity<ClientSurvey> updateClient(Integer survey_id , ClientSurvey  clientSurvey){
-       ClientSurvey survey = clientRepository.findById(survey_id).get();
-
-        survey.setSurveyName(clientSurvey.getSurveyName());
-        survey.setSurvey_description(clientSurvey.getSurvey_description());
-
-        ClientSurvey update =  clientRepository.save(survey);
-       return ResponseEntity.ok(update);
+    public ClientSurveyView update(Integer survey_id , SurveyForm form){
+     return clientRepository.findById(survey_id).map((survey) -> {
+         return new ClientSurveyView(clientRepository.save(survey.update(form)));
+     } ).orElseThrow(NotFoundException::new);
     }
     public void deleteClient(Integer survey_id){
-        clientRepository.deleteById(survey_id);
+
+     ClientSurvey clientSurvey =clientRepository.findBySurveyIdAndStatus(survey_id, ClientSurvey.Status.ACTIVE.value).orElseThrow(NotFoundException::new);
+     clientSurvey.setStatus(ClientSurvey.Status.DELETED.value);
+     clientSurvey.setDeleteDate(new Date());
+     clientRepository.save(clientSurvey);
+    return;
     }
 
 

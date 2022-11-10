@@ -15,7 +15,9 @@ public class QuestionForm {
     private String question_type;
 
     @NotNull
-    private int survey_id;
+    private int surveyId;
+
+
 
     private String options [];
 
@@ -53,11 +55,11 @@ public class QuestionForm {
         this.question_type = question_type;
     }
 
-    public int getSurvey_id() {
-        return survey_id;
+    public int getSurveyId() {
+        return surveyId;
     }
 
-    public void setSurvey_id(int survey_id) {
-        this.survey_id = survey_id;
+    public void setSurveyId(int surveyId) {
+        this.surveyId = surveyId;
     }
 }

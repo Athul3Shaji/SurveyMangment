@@ -1,24 +1,57 @@
 package com.survey.clientsurvey.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.survey.clientsurvey.form.QuestionForm;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "question")
 public class Question {
 
+    public static enum Status {
+        DELETED((byte) 0),
+        ACTIVE((byte) 1);
+
+        public final byte value;
+
+        private Status(byte value) {
+            this.value = value;
+        }
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private int question_id;
+    private int questionId;
     @Column
     String question;
     @Column
     String question_type;
 
-   @Column
-   int survey_id;
+    private byte status;
 
+
+
+    @Column
+   int surveyId;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createDate;
+
+
+
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updateDate;
+
+
+
+    private Date deleteDate;
+
+    @JsonIgnore
    String options [];
 
 
@@ -31,23 +64,27 @@ public class Question {
         this.options = options;
     }
 
-    //    @ElementCollection(fetch = FetchType.LAZY)
-//    private Collection<String> option;
+
   public Question(){}
 
 
 
-    public Question(int question_id) {
-        this.question_id = question_id;
+    public Question(int questionId) {
+        this.questionId = questionId;
+
 
     }
 
     public Question(QuestionForm form){
         this.question= form.getQuestion();
         this.question_type= form.getQuestion_type();
-        this.survey_id= form.getSurvey_id();
+        this.surveyId = form.getSurveyId();
 //        this.option=form.getOption();
         this.options= form.getOptions();
+        this.status=Status.ACTIVE.value;
+        Date dt = new Date();
+        this.createDate = dt;
+        this.updateDate = dt;
     }
 
 
@@ -55,16 +92,18 @@ public class Question {
     public Question update(QuestionForm form){
         this.question=form.getQuestion();
         this.question_type=form.getQuestion_type();
-        this.survey_id = form.getSurvey_id();
+        this.surveyId = form.getSurveyId();
+        Date dt = new Date();
+        this.updateDate = dt;
         return  this;
     }
 
-    public int getQuestion_id() {
-        return question_id;
+    public int getQuestionId() {
+        return questionId;
     }
 
-    public void setQuestion_id(int question_id) {
-        this.question_id = question_id;
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
     }
 
     public String getQuestion() {
@@ -83,12 +122,43 @@ public class Question {
         this.question_type = question_type;
     }
 
-    public int getSurvey_id() {
-        return survey_id;
+    public int getSurveyId() {
+        return surveyId;
     }
 
-    public void setSurvey_id(int survey_id) {
-        this.survey_id = survey_id;
+    public void setSurveyId(int surveyId) {
+        this.surveyId = surveyId;
+    }
+
+    public byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(byte status) {
+        this.status = status;
+    }
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public Date getDeleteDate() {
+        return deleteDate;
+    }
+
+    public void setDeleteDate(Date deleteDate) {
+        this.deleteDate = deleteDate;
     }
 //    public Collection<String> getOption() {
 //        return option;

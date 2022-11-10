@@ -32,15 +32,16 @@ export class SurveyServiceService {
    
     return this.http.post<Survey>(this.clientUrladd,survey,{headers:this.header});
    }
-   deleteSurvey(id: number): Observable<any> {
-    return this.http.delete(`${this.clientUrl}/${id}`, { responseType: 'text' });
+   deleteSurvey(id: number){
+    return this.http.delete(`${this.clientUrl}/${id}`);
   }
   public getSurvey(id : number): Observable<Survey[]>{
     return this.http.get<Survey[]>(this.clientUrl+'/'+id);
   }
 
-  public update(id :number,survey : Survey){
-    return this.http.patch(this.clientUrl+'/editsurvey/'+id,survey);
+  public update(id :number,survey : any){
+    console.log("service",survey)
+    return this.http.put(this.clientUrl+'/editsurvey/'+id,survey);
   }
 
   public search(search:string){

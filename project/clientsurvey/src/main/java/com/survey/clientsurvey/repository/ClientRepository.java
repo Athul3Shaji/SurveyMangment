@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 public interface ClientRepository extends JpaRepository <ClientSurvey, Integer> {
 
@@ -13,16 +14,15 @@ public interface ClientRepository extends JpaRepository <ClientSurvey, Integer> 
 
     @Query("FROM ClientSurvey WHERE survey_id= :survey_id")
     List<ClientSurvey> findByGet(int survey_id);
-  Collection<ClientSurvey> findAllByUserUserId(Integer userId);
+  Collection<ClientSurvey> findAllByUserUserIdAndStatus(Integer userId,byte status);
     ClientSurvey save(ClientSurvey clientSurvey);
-//    Optional<ClientSurvey> findByContactIdAndUserUserId(Integer survey_id, Integer userId);
-
-//    Collection<ClientSurvey> findAll();
-//     Collection<ClientSurveyView> findAllByUserUserId(Integer userId);
 
     Collection<ClientSurvey>findByUserUserIdAndSurveyId(Integer userId,Integer survey_id);
 
     List<ClientSurvey>findBySurveyNameContaining(String search);
+
+
+    Optional<ClientSurvey>findBySurveyIdAndStatus(Integer survey_id,byte status);
     
 
 

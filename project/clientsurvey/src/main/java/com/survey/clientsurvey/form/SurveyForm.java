@@ -1,6 +1,8 @@
 package com.survey.clientsurvey.form;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
 public class SurveyForm {
 
 
@@ -11,6 +13,8 @@ public class SurveyForm {
     @NotBlank
     @Size(max = 255)
     private String survey_description;
+
+
 
     public String getSurveyName() {
         return surveyName;

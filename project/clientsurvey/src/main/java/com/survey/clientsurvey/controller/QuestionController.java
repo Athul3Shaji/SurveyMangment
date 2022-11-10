@@ -33,13 +33,12 @@ public class QuestionController {
     }
 
 
-    @RequestMapping(value= "/questions/surveyId/{survey_id}")
-    public List<Question> getQuestion(@PathVariable Integer survey_id){
+    @RequestMapping(value= "/questions/surveyId/{survey_id}",method = RequestMethod.GET)
+    public List<QuestionView> getQuestion(@PathVariable Integer survey_id){
         return questionService.getQuestion(survey_id);
 
     }
-    @RequestMapping(value="/questions/question_id/" +
-            "{question_id}",method = RequestMethod.DELETE)
+    @RequestMapping(value="/questions/question_id/{question_id}",method = RequestMethod.DELETE)
     public void deleteQuestion(@PathVariable Integer question_id){
      questionService.questionDelete(question_id);
     }

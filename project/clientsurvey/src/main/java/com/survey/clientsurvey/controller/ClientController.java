@@ -1,7 +1,6 @@
 package com.survey.clientsurvey.controller;
 
 import com.survey.clientsurvey.form.SurveyForm;
-import com.survey.clientsurvey.model.ClientSurvey;
 import com.survey.clientsurvey.service.ClientService;
 import com.survey.clientsurvey.service.impl.ClientSurveyServiceImpl;
 import com.survey.clientsurvey.view.ClientSurveyView;
@@ -37,9 +36,9 @@ public class ClientController {
       return   clientService.addClient(form);
     }
 
-    @RequestMapping(value = "/surveys/editsurvey/{survey_id}", method = RequestMethod.PATCH)
-    public void updateStudent(@PathVariable(name = "survey_id") Integer survey_id ,@RequestBody ClientSurvey clientSurvey) {
-       clientSurveyService.updateClient(survey_id,clientSurvey);
+    @RequestMapping(value = "/surveys/editsurvey/{survey_id}", method = RequestMethod.PUT)
+    public ClientSurveyView update(@PathVariable(name = "survey_id") Integer survey_id ,@RequestBody SurveyForm form) {
+      return clientService.update(survey_id,form);
     }
 
 

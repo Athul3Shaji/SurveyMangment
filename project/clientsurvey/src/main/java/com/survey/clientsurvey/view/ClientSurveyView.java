@@ -14,7 +14,7 @@ public class ClientSurveyView {
 
     private final Date date;
 
-    private final String status;
+
 
 
 
@@ -23,7 +23,7 @@ public class ClientSurveyView {
         this.surveyName = clientSurvey.getSurveyName();
         this.survey_description = clientSurvey.getSurvey_description();
         this.date = clientSurvey.getDate();
-        this.status=clientSurvey.getStatus();
+
     }
 
     public int getSurvey_id() {
@@ -41,7 +41,5 @@ public class ClientSurveyView {
     public Date getDate() {
         return date;
     }
-    public String getStatus() {
-        return status;
-    }
+
 }

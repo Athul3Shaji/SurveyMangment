@@ -25,7 +25,7 @@ export class QuestionComponent implements OnInit {
  questions ! : Question[]
 //  options ! : Option[]
  opt! : []
-
+ id=JSON.parse(sessionStorage.getItem('survey_id') || '{}' );
   
 
 //  addoptions ! : FormArray;
@@ -56,6 +56,7 @@ export class QuestionComponent implements OnInit {
          
         question_type : '',
         question :'',
+        surveyId:'',
         options : this.fb.array([]) 
 
 
@@ -69,9 +70,12 @@ export class QuestionComponent implements OnInit {
     }
     newOptions(): FormGroup {
       return this.fb.group({
-        options: '',
+        options:''
+
+      }
+        
        
-      })
+      )
     }
 
     addOptions() {
@@ -88,6 +92,7 @@ export class QuestionComponent implements OnInit {
       this.questions = data;})
 
    }
+   
   
   addOption(id : number){
     console.log(id)

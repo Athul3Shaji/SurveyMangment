@@ -1,51 +1,10 @@
+
 <header><app-header></app-header></header>
 
 
 
 <form [formGroup]="questionForm"  (ngSubmit)="onSubmitone()">
               
-              
-    <!-- Question Type 
-          <select formControlName="question_type">
-            
-            <option *ngFor="let country of countries"  >{{country.name}}</option>
-          </select>
-         
-          
-          <p>
-  
-          <label for="name">Question Name:</label>
-          <input type="text" id="qname" name="qname" formControlName="question"   >
-        </p>
-      Options:
-             <div formArrayName="options">
-              <div  *ngFor="let options of options.controls; let i =index">
-                <div [formGroupName]="i">
-                  {{i}}
-                  Option name:
-                  <input type="text" formControlName="options">
-
-                  <button (click)="removeOption(i)">Remove</button>
-
-                </div>
-
-              </div>
-
-             </div>
-        
-   <button  type="submit">submit</button>
-            
-         
-   <p>
-    <button type="button" (click)="addOptions()">Add</button>
-  </p>
-   
-  {{this.questionForm.value | json}}
-   -->
-          
-            
-
-
  <h1 align="center">Add Question</h1>
 
  <div class="testbox">
@@ -64,13 +23,17 @@
         <label for="lname"> Question Name:</label>
         <input type="text" id="qname" name="qname" formControlName="question"   >
       </div>
+      <div class="item">
+        <!-- <label for="lname"> SurveyId:</label>   -->
+        <input type="text" id="qname" name="qname" formControlName="surveyId" [(ngModel)]="id"  hidden>
+      </div>
       <div formArrayName="options">
 
         <label for="lname">  Options:</label>
           <div  *ngFor="let options of options.controls; let i =index">
             <div [formGroupName]="i">
              
-              <input type="text" formControlName="options">
+              <input type="text"  formControlName="options">
 
               &nbsp;&nbsp;&nbsp; <button (click)="removeOption(i)" class="btn btn-danger">-</button>
 
@@ -87,7 +50,7 @@
   </p>
   <div align="right"><button  type="submit" class="btn btn-primary">Add</button></div>
 
-  <!-- {{this.questionForm.value | json}} -->
+  {{this.questionForm.value | json}}
       </div>
       
     </div></div>
@@ -96,6 +59,7 @@
   </form>
 
 
-  <div>           <app-question-view></app-question-view> -->
+  <div>           
+    <app-question-view></app-question-view> 
   </div>
 

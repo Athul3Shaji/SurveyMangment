@@ -18,7 +18,7 @@ export class SurveyListComponent implements OnInit {
   search !:string;
   page: number = 1;
   count: number = 0;
-  tableSize: number =5 ;
+  tableSize: number =7 ;
   tableSizes: any = [3, 6, 9, 12];
   fileUrl: any;
   downloadJsonHref: any;

@@ -3,6 +3,7 @@ import { OtionService } from '../shared/otion.service';
 import { Option } from '../option';
 import { Survey } from '../survey';
 import { SurveyServiceService } from '../survey-service.service';
+import { FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class EditsurveyComponent implements OnInit {
   options ! : Option[]
    surveys ! : Survey[];
    surveyedit ! : Survey;
-  constructor(private otionService : OtionService,private surveyService : SurveyServiceService) {
+  surveyForm: any;
+  constructor(private otionService : OtionService,private surveyService : SurveyServiceService,private fb:FormBuilder) {
     this.surveyedit = new Survey;
    }
 
@@ -34,14 +36,20 @@ export class EditsurveyComponent implements OnInit {
   //  console.log(this.survey)
   //  this.surveyService.update(id).subscribe(result=> this.reload())
     
+
+  this.surveyForm=this.fb.group({
+    surveyName:" ",
+    survey_description: " "
+    
+  })
 }
 
   onUpdate(id : number){
 
      console.log("edit one",id)
-    this.surveyedit.survey_id=id
-    console.log("data",this.surveyedit)
-    this.surveyService.update(id,this.surveyedit).subscribe(result=> this.reload())
+    // this.surveyedit.survey_id=id
+    console.log("data",this.surveyForm.value)
+    this.surveyService.update(id,this.surveyForm.value).subscribe(result=> this.reload())
     
 
   }

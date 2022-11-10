@@ -3,25 +3,27 @@ package com.survey.clientsurvey.view;
 import com.survey.clientsurvey.model.Question;
 
 public class QuestionView {
-    private final int question_id;
+
+
+    private final int questionId;
     private final String question;
     private final String question_type;
-    private final int survey_id;
+    private final int surveyId;
 
     private final String options[];
 
 
 
     public QuestionView(Question question) {
-        this.question_id = getQuestionId();
+        this.questionId = question.getQuestionId();
         this.question = question.getQuestion();
         this.question_type = question.getQuestion_type();
-        this.survey_id = question.getSurvey_id();
+        this.surveyId = question.getSurveyId();
         this.options=question.getOptions();
     }
 
     public int getQuestionId() {
-        return question_id;
+        return questionId;
     }
 
     public String getQuestion() {
@@ -33,7 +35,7 @@ public class QuestionView {
     }
 
     public int getSurveyId() {
-        return survey_id;
+        return surveyId;
     }
     public String[] getOptions() {
         return options;

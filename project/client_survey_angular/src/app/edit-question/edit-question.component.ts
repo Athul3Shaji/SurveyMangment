@@ -32,7 +32,7 @@ export class EditQuestionComponent implements OnInit {
     this.questionEdit =this.fb.group({
       question_type :[],
       question :[],
-      survey_id :[]
+      surveyId :[]
     });
     
    let id = this.route.snapshot.params['question_id']

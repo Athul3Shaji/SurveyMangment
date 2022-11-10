@@ -24,6 +24,7 @@ import { EmailtouserComponent } from './emailtouser/emailtouser.component';
 import { SearchsurveyComponent } from './searchsurvey/searchsurvey.component';
 import {NgxPaginationModule } from 'ngx-pagination';
 import { ChartComponent } from './chart/chart.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -48,6 +49,7 @@ import { ChartComponent } from './chart/chart.component';
     EmailtouserComponent,
     SearchsurveyComponent,
     ChartComponent,
+    ProfileComponent,
     
   
    

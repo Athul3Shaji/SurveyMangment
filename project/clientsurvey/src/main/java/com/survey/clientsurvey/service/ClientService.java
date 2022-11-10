@@ -1,9 +1,8 @@
 package com.survey.clientsurvey.service;
 
+import com.survey.clientsurvey.exception.NotFoundException;
 import com.survey.clientsurvey.form.SurveyForm;
-import com.survey.clientsurvey.model.ClientSurvey;
 import com.survey.clientsurvey.view.ClientSurveyView;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +20,6 @@ public interface ClientService {
 
 
 
-    ResponseEntity<ClientSurvey> updateClient(Integer survey_id, ClientSurvey clientSurvey);
+    ClientSurveyView update(Integer survey_id, SurveyForm form) throws NotFoundException;
 
 }

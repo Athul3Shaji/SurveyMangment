@@ -14,29 +14,24 @@
               
             
               <div class="card-body">
-                  <form *ngFor="let survey of surveys" (ngSubmit)="onUpdate(survey.survey_id)">
-                    <!-- <tr *ngFor="let surveys of surveyedit"></tr>    -->
-                    <!-- <tr *ngFor="let surveys of survey">
-                              <td>{{ surveys.survey_id }}</td>
-                              <td>{{ surveys.survey_name }}</td>
-                              <td>{{ surveys.survey_description }}</td></tr> -->
-                       
-                              <tr ></tr>
+                  <form  [formGroup]="surveyForm">
+                
+                          
                       <div class="form-group">
                           <label> Survey Name</label>
                           <input  *ngFor="let survey of surveys"  type="text" class="form-control" id="firstName" 
-                              name="firstName"  [(ngModel)]="surveyedit.surveyName" [(ngModel)]="survey.surveyName" >
+                              name="firstName"  formControlName="surveyName" [(ngModel)]="survey.surveyName" >
                       </div>
   
                       <div class="form-group">
                           <label>Survey Description</label>
                           <input *ngFor="let survey of surveys" type="text" class="form-control" id="lastName" 
-                              name="lastName" [(ngModel)]="surveyedit.survey_description" [(ngModel)]="survey.survey_description">
+                              name="lastName"formControlName="survey_description" [(ngModel)]="survey.survey_description">
                       </div>
   
-                       <!-- <p *ngFor="let surveys of survey"> -->
+                    
                       
-                      <button type="submit" class="btn btn-success">Update</button>
+                      <button type="submit" class="btn btn-success" *ngFor="let survey of surveys" (ngSubmit)="onUpdate(survey.survey_id)" (click)="onUpdate(survey.survey_id)">Update</button>
                   
                   </form>
               </div>

@@ -11,7 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 
 public class QuestionServiceImpl implements QuestionService {
@@ -27,8 +30,9 @@ public class QuestionServiceImpl implements QuestionService {
             return questions;
 
         }
-    public List<Question> getQuestion(Integer survey_id){
-        return questionRepository.findBySurvey(survey_id);
+    public List<QuestionView> getQuestion(Integer survey_id){
+        return questionRepository.findAllBySurveyIdAndStatus(survey_id,Question.Status.ACTIVE.value).stream().map((quest)->
+                new QuestionView(quest)).collect(Collectors.toList());
 
     }
     @Override
@@ -38,8 +42,11 @@ public class QuestionServiceImpl implements QuestionService {
         }
 
         public  void questionDelete(Integer question_id){
-             questionRepository.deleteById(question_id);
-
+          Question question = questionRepository.findByQuestionIdAndStatus(question_id,Question.Status.ACTIVE.value).orElseThrow(NotFoundException::new);
+          question.setStatus(Question.Status.DELETED.value);
+          question.setDeleteDate(new Date());
+          questionRepository.save(question);
+            return;
         }
 
         public List<Question> getQuestionById(Integer question_id){
