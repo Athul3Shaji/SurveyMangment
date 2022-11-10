@@ -25,6 +25,7 @@ import { SearchsurveyComponent } from './searchsurvey/searchsurvey.component';
 import {NgxPaginationModule } from 'ngx-pagination';
 import { ChartComponent } from './chart/chart.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -50,6 +51,7 @@ import { ProfileComponent } from './profile/profile.component';
     SearchsurveyComponent,
     ChartComponent,
     ProfileComponent,
+    FooterComponent,
     
   
    

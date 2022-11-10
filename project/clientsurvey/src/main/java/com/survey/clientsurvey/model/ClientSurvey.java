@@ -76,6 +76,8 @@ public class  ClientSurvey {
     {
         this.surveyName = form.getSurveyName();
         this.survey_description = form.getSurvey_description();
+        this.status=Status.ACTIVE.value;
+
         Date dt = new Date();
         this.updateDate = dt;
         return this;

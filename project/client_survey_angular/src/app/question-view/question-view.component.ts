@@ -28,14 +28,10 @@ export class QuestionViewComponent implements OnInit {
   ngOnInit(): void {
 
     var id = JSON.parse(sessionStorage.getItem('survey_id') || '{}' );
-    // console.log("hello",id)
+    
 
     var idop=JSON.parse(sessionStorage.getItem('question_id') || '{}')
-    // this.otionService.findAll().subscribe(data=>{
-    //   this.question = data;
-    // })
-    // this.otionService.findAllOptions().subscribe(data=>{
-    //   this.options = data;})
+    
        this.otionService.getOption(idop).subscribe(data=>{
         this.options=data;
        })
@@ -55,11 +51,9 @@ export class QuestionViewComponent implements OnInit {
 
   }
   addOption(){
-    // console.log(id)
      this.option.question_id=JSON.parse(sessionStorage.getItem('question_id') || '{}');
     console.log(this.option)
 
-    // console.log(this.oprequest.option=this.option)
   
      this.otionService.optionsave(this.option).subscribe(result => this.reload());
   }
@@ -86,7 +80,6 @@ export class QuestionViewComponent implements OnInit {
   onEdit(id : any){
     console.log("questionId",id)
     var k = btoa(id)
-    // sessionStorage.setItem("edit_question_id",JSON.stringify(id));
 
     this.router.navigate(['questions/editquestion/'+k])
   }

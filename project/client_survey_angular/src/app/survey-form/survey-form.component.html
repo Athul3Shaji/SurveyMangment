@@ -1,5 +1,10 @@
 
 <header><app-header></app-header></header>
+<br>
+<br>
+<a routerLink="/surveylists" class="btn btn-info">Survey Lists</a>
+
+
 <div class="card my-2">
     <div class="card-body">
       <form (ngSubmit)="onSubmit()" #userForm="ngForm"  >
@@ -38,78 +43,7 @@
    
   </div>
   
-  <!-- <button type="button" class="btn btn-info btn-lg" (click)="openModal()">Add Question</button>
-  
-  
-  
-  
-  
-  
-  <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
-       <div class="modal-dialog" role="document">
-             <div class="modal-content">
-                   <div class="modal-header">
-                         <h4 class="modal-title">Questions</h4>
-                         <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
-                       </div>
-              <div class="modal-body">
-        
-
-      
-          
-          
-          </div>
-          <div class="container">
-  
-    
-    
-            <form (ngSubmit)="onSubmitone()">
-              
-              
-          Question Type 
-                <select [(ngModel)]="question.question_type"  [ngModelOptions]="{standalone: true}" >
-                  
-                  <option *ngFor="let country of countries"  >{{country.name}}</option>
-                </select>
-               
-                
-                <p>
-        
-                <label for="name">Question Name:</label>
-                <input type="text" id="qname" name="qname" [ngModelOptions]="{standalone: true}"     [(ngModel)]="question.question"   >
-              </p>
-            
-            
-               
-                  <th >Options:</th>
-                 
-                    <input  type="text"   [ngModelOptions]="{standalone: true}"  [(ngModel)]="option.option_name" >        
-                 
-                  
-           
-             
-              
-              
-            
-              
-            <br/>
-           
-          
-        
-               
-                
-                  
-                       
-                   <div class="modal-footer">
-                    <button type="submit"  class="btn btn-secondary" id="btn" >Add</button>
-                         <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
-                       </div>
-                      </form>
-          </div>
-           </div> -->
-<!-- </div>
-  </div>
-   -->
+ 
 
 
   
