@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +26,8 @@ import {NgxPaginationModule } from 'ngx-pagination';
 import { ChartComponent } from './chart/chart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FooterComponent } from './footer/footer.component';
+import { MatCardModule,MatCardAvatar,MatCard } from "@angular/material/card";
+
 
 
 
@@ -64,6 +66,8 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
+    MatCardModule,
+    
     
   
     

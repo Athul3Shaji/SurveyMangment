@@ -31,6 +31,10 @@ export class ClientLoginComponent implements OnInit {
       email:this.loginForm.value.email,
       password:this.loginForm.value.password
     });
+
+ 
+sessionStorage.setItem("usermail",JSON.stringify(this.loginForm.value.email))
+
     console.log("logged",this.loginForm.value)
     this.loginService.login(this.loginForm.value).subscribe((res: any)=>{
       this.data=res

@@ -10,10 +10,12 @@
           <img src="https://imgs.search.brave.com/x1g2y_vvfxNcJTvWp_UmLvFH0Vl2h7-B8z_lY1VPV-U/rs:fit:600:295:1/g:ce/aHR0cHM6Ly9lYm9v/a3MubXRsZWJhbm9u/Lm9yZy9pbWFnZXMv/c3VydmV5X2xvZ28u/cG5n"></a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"> <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active" class="btn btn-secondary">Home</a></li>
-          
-        </ul>
-        
+           <!-- <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active" class="btn btn-secondary">Home</a>  -->
+          <app-profile></app-profile>
+         <input type="text" [(ngModel)]="userEmail" readonly></ul>
+        <p *ngFor="let use of user">
+          <!-- {{use.name}} -->
+        </p>
         <button class="btn btn-danger navbar-btn" (click)="Logout()">Logout</button>
       </div>
     </nav>
