@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit } from '@angular/core';
 import { OtionService } from '../shared/otion.service';
 import { Option } from '../option';
 import { Survey } from '../survey';
@@ -50,7 +50,7 @@ export class EditsurveyComponent implements OnInit {
      console.log("edit one",id)
     // this.surveyedit.survey_id=id
     console.log("data",this.surveyForm.value)
-    this.surveyService.update(id,this.surveyForm.value).subscribe(result=> this.reload())
+    this.surveyService.update(id,this.surveyForm).subscribe(result=> this.reload())
     
 
   }

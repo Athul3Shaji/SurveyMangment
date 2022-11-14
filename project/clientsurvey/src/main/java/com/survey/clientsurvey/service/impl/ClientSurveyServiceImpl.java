@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,7 +31,7 @@ public class ClientSurveyServiceImpl implements ClientService {
     @Override
     public List<ClientSurveyView> getSearchSurveys(String search){
 
-        return clientRepository.findBySurveyNameContaining(search).stream().map((sury)->
+        return clientRepository.findByUserUserIdAndSurveyNameContainingAndStatus(SecurityUtil.getCurrentUserId(),search,ClientSurvey.Status.ACTIVE.value).stream().map((sury)->
                 new ClientSurveyView(sury)).collect(Collectors.toList());
 
     }
@@ -69,7 +70,7 @@ public class ClientSurveyServiceImpl implements ClientService {
     }
 
 
-    public List<ClientSurvey> listAll(){
-     return clientRepository.findAll();
+    public Collection<ClientSurvey> listAll(){
+     return clientRepository.findAllByUserUserIdAndStatus(SecurityUtil.getCurrentUserId(),ClientSurvey.Status.ACTIVE.value);
     }
 }

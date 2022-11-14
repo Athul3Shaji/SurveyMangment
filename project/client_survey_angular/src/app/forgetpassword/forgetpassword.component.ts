@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../shared/login.service';
 
 @Component({
   selector: 'app-forgetpassword',
@@ -8,18 +10,29 @@ import { Router } from '@angular/router';
 })
 export class ForgetpasswordComponent implements OnInit {
   email!:string
-
-  constructor(private router : Router) { }
+  forgotForm :any;
+  constructor(private router : Router,private fb :FormBuilder,private loginService:LoginService) { }
 
   ngOnInit(): void {
-    console.log(this.email)
+
+
+    this.forgotForm= this.fb.group({
+     recipient : ""
+    })
    
   }
   
   onSubmit(){
+   
+     
+    console.log("email",this.forgotForm.value)
+
+    this.loginService.fotgot(this.forgotForm.value).subscribe(result=>this.reload())
     this.router.navigate(["/login"])
 
   }
-  
+  reload(){
+
+  }
 
 }

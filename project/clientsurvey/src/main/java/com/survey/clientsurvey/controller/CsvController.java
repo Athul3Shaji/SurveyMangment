@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 
 @RestController
@@ -36,7 +36,7 @@ public class CsvController {
         String headerValue = "attachment; filename=surveys_" + currentDateTime + ".csv";
         response.setHeader(headerKey, headerValue);
 
-        List<ClientSurvey> listSurveys = clientSurveyService.listAll();
+        Collection<ClientSurvey> listSurveys = clientSurveyService.listAll();
 
         ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
         String[] csvHeader = {"Survey ID", "Survey Name", "Survey Description",};

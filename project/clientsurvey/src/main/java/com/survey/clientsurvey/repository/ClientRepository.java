@@ -14,12 +14,14 @@ public interface ClientRepository extends JpaRepository <ClientSurvey, Integer> 
 
     @Query("FROM ClientSurvey WHERE survey_id= :survey_id")
     List<ClientSurvey> findByGet(int survey_id);
+
+//    List<ClientSurvey>findAllByUserUserIdAndStatus(Integer user_id,byte status);
   Collection<ClientSurvey> findAllByUserUserIdAndStatus(Integer userId,byte status);
     ClientSurvey save(ClientSurvey clientSurvey);
 
     Collection<ClientSurvey>findByUserUserIdAndSurveyId(Integer userId,Integer survey_id);
 
-    List<ClientSurvey>findBySurveyNameContaining(String search);
+    List<ClientSurvey>findByUserUserIdAndSurveyNameContainingAndStatus(Integer userId,String search,byte status);
 
 
     Optional<ClientSurvey>findBySurveyIdAndStatus(Integer survey_id,byte status);

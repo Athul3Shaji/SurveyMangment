@@ -27,6 +27,8 @@ import { ChartComponent } from './chart/chart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatCardModule,MatCardAvatar,MatCard } from "@angular/material/card";
+import { NewpasswordComponent } from './newpassword/newpassword.component';
+import { AddprofileComponent } from './addprofile/addprofile.component';
 
 
 
@@ -54,6 +56,8 @@ import { MatCardModule,MatCardAvatar,MatCard } from "@angular/material/card";
     ChartComponent,
     ProfileComponent,
     FooterComponent,
+    NewpasswordComponent,
+    AddprofileComponent,
     
   
    

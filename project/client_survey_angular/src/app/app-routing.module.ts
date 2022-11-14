@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddprofileComponent } from './addprofile/addprofile.component';
 import { ClientLoginComponent } from './client-login/client-login.component';
 import { EditQuestionComponent } from './edit-question/edit-question.component';
 import { EditsurveyComponent } from './editsurvey/editsurvey.component';
@@ -7,6 +8,7 @@ import { EmailtouserComponent } from './emailtouser/emailtouser.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
+import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { QuestionViewComponent } from './question-view/question-view.component';
 import { QuestionComponent } from './question/question.component';
 import { SearchsurveyComponent } from './searchsurvey/searchsurvey.component';
@@ -29,6 +31,10 @@ const routes: Routes = [
   {path:'sendsurvey/survey_id/:survey_id',component:SendsurveyComponent,canActivate:[AuthguardService]},
   {path:'sendemail',component:EmailtouserComponent,canActivate:[AuthguardService]},
   {path:'search/survey/:search',component:SearchsurveyComponent,canActivate:[AuthguardService]},
+  { path: 'newpassword', component:NewpasswordComponent},
+  {path:'addprofile',component:AddprofileComponent,canActivate:[AuthguardService]},
+
+
 
 
 
